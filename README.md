@@ -64,6 +64,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **windwp/nvim-autopairs** - Auto close brackets
 - **numToStr/Comment.nvim** - Smart commenting
 - **folke/which-key.nvim** - Keybinding hints
+- **stevearc/conform.nvim** - Code formatting with multiple formatters
 
 ### AI Assistance
 - **supermaven-inc/supermaven-nvim** - AI code completion
@@ -132,7 +133,13 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>rn` | Rename symbol |
 | `<leader>ca` | Code actions |
 | `gr` | Find references |
-| `<leader>f` | Format code |
+
+### Code Formatting (Conform.nvim)
+| Key | Action |
+|-----|--------|
+| `<leader>f` | Format current buffer |
+| `:ConformInfo` | Show formatter info |
+| Auto-format | On save (500ms timeout) |
 
 ### Diagnostics
 | Key | Action |
@@ -225,6 +232,28 @@ The following language servers are automatically installed via Mason:
 - **gopls** - Go language server
 - **rust_analyzer** - Rust language server
 
+## 🎨 Code Formatters
+
+Conform.nvim supports these formatters (install as needed):
+
+### Lua
+- **stylua** - `cargo install stylua`
+
+### Python  
+- **black** - `pip install black`
+- **isort** - `pip install isort`
+
+### Rust
+- **rustfmt** - Included with Rust toolchain
+
+### Go
+- **gofmt** - Included with Go
+- **goimports** - `go install golang.org/x/tools/cmd/goimports@latest`
+
+### JavaScript/TypeScript
+- **prettier** - `npm install -g prettier`
+- **prettierd** - `npm install -g @fsouza/prettierd` (faster)
+
 ### Adding More Language Servers
 
 Edit `lua/plugins/lsp.lua` and add servers to the `ensure_installed` list:
@@ -256,6 +285,7 @@ Currently configured for:
 │   └── plugins/
 │       ├── blink.lua        # Blink.cmp completion
 │       ├── colorscheme.lua  # Kanagawa theme
+│       ├── conform.lua      # Code formatting
 │       ├── editor.lua       # Editor enhancements
 │       ├── harpoon.lua      # Harpoon navigation
 │       ├── lsp.lua          # LSP configuration
