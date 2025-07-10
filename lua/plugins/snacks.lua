@@ -66,7 +66,12 @@ return {
           statusline = false,
           tabline = false,
         },
-        win = { backdrop = 0.95 },
+        win = { 
+          backdrop = {
+            transparent = false,
+            blend = 95,
+          }
+        },
         zoom = {
           toggles = {},
           show = {
@@ -74,7 +79,10 @@ return {
             tabline = true,
           },
           win = {
-            backdrop = false,
+            backdrop = {
+              transparent = false,
+              blend = 95,
+            },
             width = 120,
           },
         },
