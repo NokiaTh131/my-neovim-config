@@ -1,0 +1,270 @@
+# Neovim Configuration
+
+A modern, transparent Neovim configuration with essential plugins for development.
+
+## 📋 Requirements
+
+- **Neovim 0.11.2+**
+- **Git**
+- **Node.js** (for some language servers)
+- **Go** (for gopls)
+- **Rust** (for rust-analyzer)
+- **ripgrep** (for telescope live grep)
+
+## 🚀 Installation
+
+1. **Backup existing config:**
+   ```bash
+   mv ~/.config/nvim ~/.config/nvim.backup
+   ```
+
+2. **Clone this config:**
+   ```bash
+   git clone https://github.com/NokiaTh131/my-neovim-config.git ~/.config/nvim
+   ```
+
+3. **Start Neovim:**
+   ```bash
+   nvim
+   ```
+   
+   Lazy.nvim will automatically install all plugins.
+
+## 🔌 Plugins
+
+### Package Manager
+- **lazy.nvim** - Modern plugin manager
+
+### Colorscheme & UI
+- **catppuccin/nvim** - Beautiful colorscheme with transparency
+- **nvim-lualine/lualine.nvim** - Statusline
+- **akinsho/bufferline.nvim** - Buffer tabs
+- **nvim-tree/nvim-web-devicons** - File icons
+
+### File Management & Navigation
+- **nvim-telescope/telescope.nvim** - Fuzzy finder
+- **nvim-neo-tree/neo-tree.nvim** - File explorer
+- **ThePrimeagen/harpoon** (branch: harpoon2) - Quick file navigation
+
+### LSP & Completion
+- **williamboman/mason.nvim** - LSP server manager
+- **williamboman/mason-lspconfig.nvim** - Bridge between Mason and lspconfig
+- **neovim/nvim-lspconfig** - LSP configuration
+- **hrsh7th/nvim-cmp** - Autocompletion
+- **hrsh7th/cmp-nvim-lsp** - LSP completion source
+- **hrsh7th/cmp-buffer** - Buffer completion source
+- **hrsh7th/cmp-path** - Path completion source
+- **hrsh7th/cmp-cmdline** - Command line completion
+
+### Snippets
+- **L3MON4D3/LuaSnip** - Snippet engine
+- **saadparwaiz1/cmp_luasnip** - LuaSnip completion source
+- **rafamadriz/friendly-snippets** - Collection of snippets
+
+### Syntax & Parsing
+- **nvim-treesitter/nvim-treesitter** - Syntax highlighting
+
+### Git Integration
+- **lewis6991/gitsigns.nvim** - Git signs in gutter
+
+### Code Enhancement
+- **windwp/nvim-autopairs** - Auto close brackets
+- **numToStr/Comment.nvim** - Smart commenting
+- **folke/which-key.nvim** - Keybinding hints
+
+### AI Assistance
+- **supermaven-inc/supermaven-nvim** - AI code completion
+
+## ⌨️ Keybindings
+
+### Leader Key
+- **Leader**: `Space`
+
+### File Operations
+| Key | Action |
+|-----|--------|
+| `<leader>ff` | Find files |
+| `<leader>fg` | Live grep |
+| `<leader>fb` | Find buffers |
+| `<leader>fh` | Help tags |
+| `<leader>e` | Toggle file explorer |
+
+### Window Management
+| Key | Action |
+|-----|--------|
+| `<C-h>` | Go to left window |
+| `<C-j>` | Go to lower window |
+| `<C-k>` | Go to upper window |
+| `<C-l>` | Go to right window |
+| `<leader>-` | Split window below |
+| `<leader>\|` | Split window right |
+
+### Buffer Management
+| Key | Action |
+|-----|--------|
+| `<S-h>` | Previous buffer |
+| `<S-l>` | Next buffer |
+| `<leader>bb` | Switch to other buffer |
+| `<leader>bd` | Delete buffer |
+
+### Tab Management
+| Key | Action |
+|-----|--------|
+| `<leader><tab><tab>` | New tab |
+| `<leader><tab>d` | Close tab |
+| `<leader><tab>]` | Next tab |
+| `<leader><tab>[` | Previous tab |
+| `<leader><tab>f` | First tab |
+| `<leader><tab>l` | Last tab |
+
+### Harpoon (Quick Navigation)
+| Key | Action |
+|-----|--------|
+| `<leader>a` | Add file to harpoon |
+| `<C-e>` | Toggle harpoon menu |
+| `<C-t>` | Jump to file 1 |
+| `<C-y>` | Jump to file 2 |
+| `<C-u>` | Jump to file 3 |
+| `<C-i>` | Jump to file 4 |
+| `<leader>hp` | Previous harpoon file |
+| `<leader>hn` | Next harpoon file |
+
+### LSP (Language Server Protocol)
+| Key | Action |
+|-----|--------|
+| `gd` | Go to definition |
+| `K` | Hover documentation |
+| `gi` | Go to implementation |
+| `<C-k>` | Signature help |
+| `<leader>rn` | Rename symbol |
+| `<leader>ca` | Code actions |
+| `gr` | Find references |
+| `<leader>f` | Format code |
+
+### Diagnostics
+| Key | Action |
+|-----|--------|
+| `<leader>cd` | Line diagnostics |
+| `]d` | Next diagnostic |
+| `[d` | Previous diagnostic |
+| `<leader>xl` | Location list |
+| `<leader>xq` | Quickfix list |
+
+### Git
+| Key | Action |
+|-----|--------|
+| `<leader>gg` | Git status |
+
+### General
+| Key | Action |
+|-----|--------|
+| `<leader>w` | Save file |
+| `<leader>q` | Quit |
+| `<Esc>` | Clear search highlight |
+
+### Visual Mode
+| Key | Action |
+|-----|--------|
+| `<` | Decrease indent (keep selection) |
+| `>` | Increase indent (keep selection) |
+| `J` | Move lines down |
+| `K` | Move lines up |
+
+### AI Completion (Supermaven)
+| Key | Action |
+|-----|--------|
+| `<Tab>` | Accept suggestion |
+| `<C-]>` | Clear suggestion |
+| `<C-j>` | Accept word |
+
+## 🎨 Theme
+
+- **Colorscheme**: Catppuccin Mocha
+- **Transparency**: Fully transparent background
+- **Icons**: Provided by nvim-web-devicons
+
+## 🛠️ Language Servers
+
+The following language servers are automatically installed via Mason:
+
+- **gopls** - Go language server
+- **rust_analyzer** - Rust language server
+
+### Adding More Language Servers
+
+Edit `lua/plugins/lsp.lua` and add servers to the `ensure_installed` list:
+
+```lua
+ensure_installed = { "gopls", "rust_analyzer", "pyright", "tsserver" }
+```
+
+## 🌳 Treesitter Languages
+
+Currently configured for:
+- Go
+- Rust  
+- Lua
+- Python
+- Vim
+- Query
+
+## 📁 Directory Structure
+
+```
+~/.config/nvim/
+├── init.lua                 # Main entry point
+├── lua/
+│   ├── config/
+│   │   ├── lazy.lua         # Lazy.nvim setup
+│   │   ├── options.lua      # Neovim options
+│   │   └── keymaps.lua      # Global keymaps
+│   └── plugins/
+│       ├── colorscheme.lua  # Catppuccin theme
+│       ├── completion.lua   # nvim-cmp setup
+│       ├── editor.lua       # Editor enhancements
+│       ├── harpoon.lua      # Harpoon navigation
+│       ├── lsp.lua          # LSP configuration
+│       ├── supermaven.lua   # AI completion
+│       ├── telescope.lua    # Fuzzy finder
+│       ├── treesitter.lua   # Syntax highlighting
+│       └── which-key.lua    # Keybinding hints
+└── README.md               # This file
+```
+
+## 🔧 Customization
+
+### Changing Theme Colors
+Edit `lua/plugins/colorscheme.lua` to modify the Catppuccin setup.
+
+### Adding Keybindings
+Edit `lua/config/keymaps.lua` for global keymaps or individual plugin files for plugin-specific mappings.
+
+### Modifying Options
+Edit `lua/config/options.lua` to change Neovim settings.
+
+## 🐛 Troubleshooting
+
+### LSP Not Working
+1. Check if language server is installed: `:Mason`
+2. Check LSP status: `:LspInfo`
+3. Check health: `:checkhealth lsp`
+
+### Telescope Errors
+1. Install ripgrep: `sudo apt install ripgrep` (Ubuntu/Debian)
+2. Check Telescope health: `:checkhealth telescope`
+
+### Treesitter Issues
+1. Update parsers: `:TSUpdate`
+2. Check installed parsers: `:TSInstallInfo`
+
+## 📝 Notes
+
+- This configuration uses Neovim 0.11.2+ features
+- Leader key is set to Space
+- All backgrounds are transparent
+- LSP servers auto-install on first use
+- Which-key shows instantly (no delay)
+
+---
+
+**Enjoy coding with your new Neovim setup! 🚀**
