@@ -40,6 +40,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **nvim-lualine/lualine.nvim** - Statusline
 - **akinsho/bufferline.nvim** - Buffer tabs
 - **nvim-tree/nvim-web-devicons** - File icons
+- **folke/snacks.nvim** - Collection of QoL plugins (dashboard, notifications, zen mode, etc.)
 
 ### File Management & Navigation
 - **nvim-telescope/telescope.nvim** - Fuzzy finder
@@ -150,6 +151,37 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>xl` | Location list |
 | `<leader>xq` | Quickfix list |
 
+### Snacks (QoL Features)
+| Key | Action |
+|-----|--------|
+| `<leader>z` | Toggle Zen Mode |
+| `<leader>Z` | Toggle Zoom |
+| `<leader>.` | Toggle Scratch Buffer |
+| `<leader>S` | Select Scratch Buffer |
+| `<leader>n` | Notification History |
+| `<leader>N` | Neovim News |
+| `<leader>cR` | Rename File |
+| `<leader>gB` | Git Blame Line |
+| `<leader>gf` | Lazygit Current File History |
+| `<leader>gl` | Lazygit Log |
+| `<leader>un` | Dismiss All Notifications |
+| `<C-/>` | Toggle Terminal |
+| `]]` | Next Reference |
+| `[[` | Previous Reference |
+
+### Toggle Options (Snacks)
+| Key | Action |
+|-----|--------|
+| `<leader>us` | Toggle Spelling |
+| `<leader>uw` | Toggle Wrap |
+| `<leader>uL` | Toggle Relative Numbers |
+| `<leader>ud` | Toggle Diagnostics |
+| `<leader>ul` | Toggle Line Numbers |
+| `<leader>uc` | Toggle Conceal Level |
+| `<leader>uT` | Toggle Treesitter |
+| `<leader>ub` | Toggle Background (dark/light) |
+| `<leader>uh` | Toggle Inlay Hints |
+
 ### Git
 | Key | Action |
 |-----|--------|
@@ -179,7 +211,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 
 ## 🎨 Theme
 
-- **Colorscheme**: Catppuccin Mocha
+- **Colorscheme**: Kanagawa Wave (Japanese-inspired)
 - **Transparency**: Fully transparent background
 - **Icons**: Provided by nvim-web-devicons
 
@@ -219,11 +251,12 @@ Currently configured for:
 │   │   ├── options.lua      # Neovim options
 │   │   └── keymaps.lua      # Global keymaps
 │   └── plugins/
-│       ├── colorscheme.lua  # Catppuccin theme
+│       ├── colorscheme.lua  # Kanagawa theme
 │       ├── completion.lua   # nvim-cmp setup
 │       ├── editor.lua       # Editor enhancements
 │       ├── harpoon.lua      # Harpoon navigation
 │       ├── lsp.lua          # LSP configuration
+│       ├── snacks.lua       # QoL features collection
 │       ├── supermaven.lua   # AI completion
 │       ├── telescope.lua    # Fuzzy finder
 │       ├── treesitter.lua   # Syntax highlighting
