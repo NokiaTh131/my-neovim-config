@@ -1,38 +1,34 @@
 return {
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
+    "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("catppuccin").setup({
-        flavour = "mocha",
-        transparent_background = true,
-        styles = {
-          comments = { "italic" },
-          conditionals = { "italic" },
-          loops = {},
-          functions = {},
-          keywords = {},
-          strings = {},
-          variables = {},
-          numbers = {},
-          booleans = {},
-          properties = {},
-          types = {},
-          operators = {},
+      require("kanagawa").setup({
+        compile = false,
+        undercurl = true,
+        commentStyle = { italic = true },
+        functionStyle = {},
+        keywordStyle = { italic = true },
+        statementStyle = { bold = true },
+        typeStyle = {},
+        transparent = true,
+        dimInactive = false,
+        terminalColors = true,
+        colors = {
+          palette = {},
+          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
         },
-        integrations = {
-          cmp = true,
-          gitsigns = true,
-          nvimtree = true,
-          treesitter = true,
-          telescope = true,
-          mason = true,
-          neotree = true,
+        overrides = function(colors)
+          return {}
+        end,
+        theme = "wave",
+        background = {
+          dark = "wave",
+          light = "lotus"
         },
       })
-      vim.cmd([[colorscheme catppuccin]])
+      vim.cmd([[colorscheme kanagawa]])
       
       -- Make everything transparent
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
