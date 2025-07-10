@@ -51,15 +51,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **williamboman/mason.nvim** - LSP server manager
 - **williamboman/mason-lspconfig.nvim** - Bridge between Mason and lspconfig
 - **neovim/nvim-lspconfig** - LSP configuration
-- **hrsh7th/nvim-cmp** - Autocompletion
-- **hrsh7th/cmp-nvim-lsp** - LSP completion source
-- **hrsh7th/cmp-buffer** - Buffer completion source
-- **hrsh7th/cmp-path** - Path completion source
-- **hrsh7th/cmp-cmdline** - Command line completion
-
-### Snippets
-- **L3MON4D3/LuaSnip** - Snippet engine
-- **saadparwaiz1/cmp_luasnip** - LuaSnip completion source
+- **saghen/blink.cmp** - Fast completion engine (Rust-based)
 - **rafamadriz/friendly-snippets** - Collection of snippets
 
 ### Syntax & Parsing
@@ -205,9 +197,20 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### AI Completion (Supermaven)
 | Key | Action |
 |-----|--------|
-| `<Tab>` | Accept suggestion |
+| `<M-l>` | Accept suggestion |
 | `<C-]>` | Clear suggestion |
 | `<C-j>` | Accept word |
+
+### Completion (Blink.cmp)
+| Key | Action |
+|-----|--------|
+| `<Tab>` | Accept completion / Navigate snippets |
+| `<S-Tab>` | Navigate snippets backward |
+| `<C-Space>` | Show completion menu |
+| `<C-e>` | Hide completion |
+| `<C-y>` | Accept completion |
+| `<C-n>/<C-p>` | Navigate completions |
+| `<C-b>/<C-f>` | Scroll documentation |
 
 ## 🎨 Theme
 
@@ -251,8 +254,8 @@ Currently configured for:
 │   │   ├── options.lua      # Neovim options
 │   │   └── keymaps.lua      # Global keymaps
 │   └── plugins/
+│       ├── blink.lua        # Blink.cmp completion
 │       ├── colorscheme.lua  # Kanagawa theme
-│       ├── completion.lua   # nvim-cmp setup
 │       ├── editor.lua       # Editor enhancements
 │       ├── harpoon.lua      # Harpoon navigation
 │       ├── lsp.lua          # LSP configuration
