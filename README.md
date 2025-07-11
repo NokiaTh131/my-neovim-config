@@ -36,7 +36,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **lazy.nvim** - Modern plugin manager
 
 ### Colorscheme & UI
-- **rebelot/kanagawa.nvim** - Beautiful japan style colorscheme with transparency
+- **neanias/everforest-nvim** - Beautiful japan style colorscheme with transparency
 - **nvim-lualine/lualine.nvim** - Statusline
 - **akinsho/bufferline.nvim** - Buffer tabs
 - **nvim-tree/nvim-web-devicons** - File icons
