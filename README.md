@@ -65,6 +65,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **numToStr/Comment.nvim** - Smart commenting
 - **folke/which-key.nvim** - Keybinding hints
 - **stevearc/conform.nvim** - Code formatting with multiple formatters
+- **folke/trouble.nvim** - Diagnostics and quickfix list
 
 ### AI Assistance
 - **supermaven-inc/supermaven-nvim** - AI code completion
@@ -141,7 +142,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `:ConformInfo` | Show formatter info |
 | Auto-format | On save (500ms timeout) |
 
-### Diagnostics
+### Diagnostics & Trouble
 | Key | Action |
 |-----|--------|
 | `<leader>cd` | Line diagnostics |
@@ -149,6 +150,12 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `[d` | Previous diagnostic |
 | `<leader>xl` | Location list |
 | `<leader>xq` | Quickfix list |
+| `<leader>xx` | Toggle diagnostics (Trouble) |
+| `<leader>xX` | Buffer diagnostics (Trouble) |
+| `<leader>cs` | Symbols (Trouble) |
+| `<leader>cl` | LSP definitions/references (Trouble) |
+| `<leader>xL` | Location list (Trouble) |
+| `<leader>xQ` | Quickfix list (Trouble) |
 
 ### Snacks (QoL Features)
 | Key | Action |
@@ -293,6 +300,7 @@ Currently configured for:
 │       ├── supermaven.lua   # AI completion
 │       ├── telescope.lua    # Fuzzy finder
 │       ├── treesitter.lua   # Syntax highlighting
+│       ├── trouble.lua      # Diagnostics viewer
 │       └── which-key.lua    # Keybinding hints
 └── README.md               # This file
 ```
