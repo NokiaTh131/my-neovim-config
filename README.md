@@ -138,7 +138,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### Code Formatting (Conform.nvim)
 | Key | Action |
 |-----|--------|
-| `<leader>f` | Format current buffer |
+| `<leader>fd` | Format current buffer |
 | `:ConformInfo` | Show formatter info |
 | Auto-format | On save (500ms timeout) |
 
@@ -193,13 +193,6 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 |-----|--------|
 | `<leader>gg` | Git status |
 
-### General
-| Key | Action |
-|-----|--------|
-| `<leader>w` | Save file |
-| `<leader>q` | Quit |
-| `<Esc>` | Clear search highlight |
-
 ### Visual Mode
 | Key | Action |
 |-----|--------|
@@ -211,8 +204,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### AI Completion (Supermaven)
 | Key | Action |
 |-----|--------|
-| `<M-l>` | Accept suggestion |
-| `<C-]>` | Clear suggestion |
+| `<Tab>` | Accept suggestion |
 | `<C-j>` | Accept word |
 
 ### Completion (Blink.cmp)
@@ -223,7 +215,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<C-Space>` | Show completion menu |
 | `<C-e>` | Hide completion |
 | `<C-y>` | Accept completion |
-| `<C-n>/<C-p>` | Navigate completions |
+| `<C-[>/<C-]>` | Navigate completions |
 | `<C-b>/<C-f>` | Scroll documentation |
 
 ## 🎨 Theme

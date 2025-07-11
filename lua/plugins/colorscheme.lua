@@ -1,34 +1,33 @@
 return {
   {
-    "rebelot/kanagawa.nvim",
+    "neanias/everforest-nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      require("kanagawa").setup({
-        compile = false,
-        undercurl = true,
-        commentStyle = { italic = true },
-        functionStyle = {},
-        keywordStyle = { italic = true },
-        statementStyle = { bold = true },
-        typeStyle = {},
-        transparent = true,
-        dimInactive = false,
-        terminalColors = true,
-        colors = {
-          palette = {},
-          theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-        },
-        overrides = function(colors)
+      require("everforest").setup({
+        background = "hard",
+        transparent_background_level = 2,
+        italics = true,
+        disable_italic_comments = false,
+        sign_column_background = "none",
+        ui_contrast = "low",
+        dim_inactive_windows = false,
+        diagnostic_text_highlight = false,
+        diagnostic_virtual_text = "coloured",
+        diagnostic_line_highlight = false,
+        spell_foreground = false,
+        show_eob = true,
+        float_style = "bright",
+        inlay_hints_background = "none",
+        on_highlights = function(highlights, palette)
+          highlights.CursorLine = { bg = "none" }
+          highlights.ColorColumn = { bg = "none" }
+        end,
+        colours_override = function(palette)
           return {}
         end,
-        theme = "wave",
-        background = {
-          dark = "wave",
-          light = "lotus"
-        },
       })
-      vim.cmd([[colorscheme kanagawa]])
+      vim.cmd([[colorscheme everforest]])
       
       -- Make everything transparent
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
