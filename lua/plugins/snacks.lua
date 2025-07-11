@@ -9,11 +9,11 @@ return {
         enabled = true,
         sections = {
           { section = "header" },
-          { section = "keys", gap = 1, padding = 1 },
+          { section = "keys",   gap = 1, padding = 1 },
           { section = "startup" },
         },
       },
-      
+
       -- Notifications
       notifier = {
         enabled = true,
@@ -38,18 +38,10 @@ return {
 
       -- Git utilities
       git = { enabled = true },
-      
+
       -- Terminal
       terminal = {
         enabled = true,
-        win = {
-          style = "terminal",
-          position = "float",
-          backdrop = 60,
-          height = 0.8,
-          width = 0.8,
-          zindex = 50,
-        },
       },
 
       -- Zen mode
@@ -66,7 +58,7 @@ return {
           statusline = false,
           tabline = false,
         },
-        win = { 
+        win = {
           backdrop = {
             transparent = false,
             blend = 95,
@@ -90,19 +82,19 @@ return {
 
       -- Smooth scrolling
       scroll = { enabled = true },
-      
+
       -- Scope
       scope = { enabled = true },
-      
+
       -- Quick file
       quickfile = { enabled = true },
-      
+
       -- Status column
       statuscolumn = { enabled = true },
-      
+
       -- Words
       words = { enabled = true },
-      
+
       -- Styles
       styles = {
         notification = {
@@ -111,21 +103,21 @@ return {
       },
     },
     keys = {
-      { "<leader>z", function() Snacks.zen() end, desc = "Toggle Zen Mode" },
-      { "<leader>Z", function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
-      { "<leader>.", function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
-      { "<leader>S", function() Snacks.scratch.select() end, desc = "Select Scratch Buffer" },
-      { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
-      { "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer" },
-      { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File" },
-      { "<leader>gB", function() Snacks.git.blame_line() end, desc = "Git Blame Line" },
-      { "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History" },
-      { "<leader>gl", function() Snacks.lazygit.log() end, desc = "Lazygit Log" },
-      { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
-      { "<c-/>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
-      { "<c-_>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
-      { "]]", function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
-      { "[[", function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
+      { "<leader>z",  function() Snacks.zen() end,                     desc = "Toggle Zen Mode" },
+      { "<leader>Z",  function() Snacks.zen.zoom() end,                desc = "Toggle Zoom" },
+      { "<leader>.",  function() Snacks.scratch() end,                 desc = "Toggle Scratch Buffer" },
+      { "<leader>S",  function() Snacks.scratch.select() end,          desc = "Select Scratch Buffer" },
+      { "<leader>n",  function() Snacks.notifier.show_history() end,   desc = "Notification History" },
+      { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
+      { "<leader>cR", function() Snacks.rename.rename_file() end,      desc = "Rename File" },
+      { "<leader>gB", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
+      { "<leader>gf", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History" },
+      { "<leader>gl", function() Snacks.lazygit.log() end,             desc = "Lazygit Log" },
+      { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
+      { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
+      { "<c-_>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
+      { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
+      { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference",              mode = { "n", "t" } },
       {
         "<leader>N",
         desc = "Neovim News",
@@ -164,7 +156,8 @@ return {
           Snacks.toggle.option("relativenumber", { name = "relative number" }):map("<leader>uL")
           Snacks.toggle.diagnostics():map("<leader>ud")
           Snacks.toggle.line_number():map("<leader>ul")
-          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map("<leader>uc")
+          Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2 }):map(
+            "<leader>uc")
           Snacks.toggle.treesitter():map("<leader>uT")
           Snacks.toggle.option("background", { off = "light", on = "dark", name = "dark background" }):map("<leader>ub")
           Snacks.toggle.inlay_hints():map("<leader>uh")

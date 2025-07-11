@@ -1,9 +1,11 @@
 # Neovim Configuration
 
 A modern, transparent Neovim configuration with essential plugins for development.
+
+> **Note**: This README is auto-generated. Keybinding documentation is automatically updated to reflect the current configuration.
 <img width="1919" height="992" alt="image" src="https://github.com/user-attachments/assets/fcae8fdd-ebb6-4209-a1ba-ecaa6921198f" />
 
-## 📋 Requirements
+## Requirements
 
 - **Neovim 0.11.2+**
 - **Git**
@@ -12,7 +14,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **Rust** (for rust-analyzer)
 - **ripgrep** (for telescope live grep)
 
-## 🚀 Installation
+## Installation
 
 1. **Backup existing config:**
    ```bash
@@ -31,13 +33,13 @@ A modern, transparent Neovim configuration with essential plugins for developmen
    
    Lazy.nvim will automatically install all plugins.
 
-## 🔌 Plugins
+## Plugins
 
 ### Package Manager
 - **lazy.nvim** - Modern plugin manager
 
 ### Colorscheme & UI
-- **neanias/everforest-nvim** - Beautiful japan style colorscheme with transparency
+- **neanias/everforest-nvim** - Beautiful nature-inspired colorscheme with transparency
 - **nvim-lualine/lualine.nvim** - Statusline
 - **akinsho/bufferline.nvim** - Buffer tabs
 - **nvim-tree/nvim-web-devicons** - File icons
@@ -71,7 +73,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### AI Assistance
 - **supermaven-inc/supermaven-nvim** - AI code completion
 
-## ⌨️ Keybindings
+## Keybindings
 
 ### Leader Key
 - **Leader**: `Space`
@@ -135,6 +137,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>rn` | Rename symbol |
 | `<leader>ca` | Code actions |
 | `gr` | Find references |
+| `<leader>f` | Format buffer (LSP) |
 
 ### Code Formatting (Conform.nvim)
 | Key | Action |
@@ -194,6 +197,15 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 |-----|--------|
 | `<leader>gg` | Git status |
 
+### Text Manipulation & Clipboard
+| Key | Action |
+|-----|--------|
+| `<leader>y` | Yank to system clipboard |
+| `<leader>Y` | Yank line to system clipboard |
+| `<leader>d` | Delete to black hole register |
+| `<leader>p` | Paste over selection (keep register) |
+| `J` | Join lines (preserve cursor) |
+
 ### Visual Mode
 | Key | Action |
 |-----|--------|
@@ -211,28 +223,41 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### Completion (Blink.cmp)
 | Key | Action |
 |-----|--------|
-| `<Tab>` | Accept completion / Navigate snippets |
-| `<S-Tab>` | Navigate snippets backward |
-| `<C-Space>` | Show completion menu |
-| `<C-e>` | Hide completion |
-| `<C-y>` | Accept completion |
-| `<C-[>/<C-]>` | Navigate completions |
-| `<C-b>/<C-f>` | Scroll documentation |
+| `<C-[>` | Select previous completion |
+| `<C-]>` | Select next completion |
+| `<CR>` | Accept completion |
 
-## 🎨 Theme
+### Navigation & Search
+| Key | Action |
+|-----|--------|
+| `<Esc>` | Clear search highlights |
+| `n` | Next search result (centered) |
+| `N` | Previous search result (centered) |
+| `<C-d>` | Half page down (centered) |
+| `<C-u>` | Half page up (centered) |
+| `[q` | Previous quickfix item |
+| `]q` | Next quickfix item |
 
-- **Colorscheme**: Kanagawa Wave (Japanese-inspired)
+### Treesitter (Text Objects)
+| Key | Action |
+|-----|--------|
+| `<C-space>` | Initialize/increment selection |
+| `<bs>` | Decrement selection |
+
+## Theme
+
+- **Colorscheme**: Everforest (Nature-inspired)
 - **Transparency**: Fully transparent background
 - **Icons**: Provided by nvim-web-devicons
 
-## 🛠️ Language Servers
+## Language Servers
 
 The following language servers are automatically installed via Mason:
 
 - **gopls** - Go language server
 - **rust_analyzer** - Rust language server
 
-## 🎨 Code Formatters
+## Code Formatters
 
 Conform.nvim supports these formatters (install as needed):
 
@@ -262,7 +287,7 @@ Edit `lua/plugins/lsp.lua` and add servers to the `ensure_installed` list:
 ensure_installed = { "gopls", "rust_analyzer", "pyright", "tsserver" }
 ```
 
-## 🌳 Treesitter Languages
+## Treesitter Languages
 
 Currently configured for:
 - Go
@@ -272,7 +297,7 @@ Currently configured for:
 - Vim
 - Query
 
-## 📁 Directory Structure
+## Directory Structure
 
 ```
 ~/.config/nvim/
@@ -298,10 +323,10 @@ Currently configured for:
 └── README.md               # This file
 ```
 
-## 🔧 Customization
+## Customization
 
 ### Changing Theme Colors
-Edit `lua/plugins/colorscheme.lua` to modify the Catppuccin setup.
+Edit `lua/plugins/colorscheme.lua` to modify the Everforest setup.
 
 ### Adding Keybindings
 Edit `lua/config/keymaps.lua` for global keymaps or individual plugin files for plugin-specific mappings.
@@ -309,7 +334,7 @@ Edit `lua/config/keymaps.lua` for global keymaps or individual plugin files for 
 ### Modifying Options
 Edit `lua/config/options.lua` to change Neovim settings.
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### LSP Not Working
 1. Check if language server is installed: `:Mason`
@@ -324,7 +349,7 @@ Edit `lua/config/options.lua` to change Neovim settings.
 1. Update parsers: `:TSUpdate`
 2. Check installed parsers: `:TSInstallInfo`
 
-## 📝 Notes
+## Notes
 
 - This configuration uses Neovim 0.11.2+ features
 - Leader key is set to Space
@@ -334,4 +359,4 @@ Edit `lua/config/options.lua` to change Neovim settings.
 
 ---
 
-**Enjoy coding with your new Neovim setup! 🚀**
+**Enjoy coding with your new Neovim setup!**
