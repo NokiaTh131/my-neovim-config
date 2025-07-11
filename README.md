@@ -1,6 +1,7 @@
 # Neovim Configuration
 
 A modern, transparent Neovim configuration with essential plugins for development.
+<img width="1919" height="992" alt="image" src="https://github.com/user-attachments/assets/fcae8fdd-ebb6-4209-a1ba-ecaa6921198f" />
 
 ## 📋 Requirements
 
