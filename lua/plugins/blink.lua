@@ -8,10 +8,14 @@ return {
     opts = {
       keymap = {
         preset = "default",
-        ['<C-[>'] = { 'select_prev', 'fallback' },
+        ['<C-q>'] = { 'select_prev', 'fallback' },
         ['<C-]>'] = { 'select_next', 'fallback' },
         ['<CR>'] = { 'select_and_accept', 'fallback' },
 
+      },
+
+      sources = {
+        default = { 'lsp', 'path', 'snippets', 'buffer' },
       },
 
       appearance = {

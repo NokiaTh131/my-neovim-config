@@ -18,7 +18,7 @@ return {
     dependencies = { "williamboman/mason.nvim" },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "rust_analyzer" },
+        ensure_installed = { "gopls", "rust_analyzer", "bashls", "lua_ls" },
         automatic_installation = true,
       })
     end,
@@ -58,6 +58,33 @@ return {
             },
             check = {
               command = "clippy",
+            },
+          },
+        },
+      })
+
+      -- Setup bash-language-server
+      lspconfig.bashls.setup({
+        capabilities = capabilities,
+      })
+
+      -- Setup lua_ls
+      lspconfig.lua_ls.setup({
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              version = "LuaJIT",
+            },
+            diagnostics = {
+              globals = { "vim" },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+            telemetry = {
+              enable = false,
             },
           },
         },
