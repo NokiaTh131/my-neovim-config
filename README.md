@@ -13,7 +13,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **Node.js** (for some language servers)
 - **Go** (for gopls)
 - **Rust** (for rust-analyzer)
-- **ripgrep** (for telescope live grep)
+- **ripgrep** (for live grep functionality)
 
 ## Installation
 
@@ -47,7 +47,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **folke/snacks.nvim** - Collection of QoL plugins (dashboard, notifications, zen mode, etc.)
 
 ### File Management & Navigation
-- **nvim-telescope/telescope.nvim** - Fuzzy finder
+- **folke/snacks.nvim** - Advanced picker/finder with 40+ built-in sources
 - **nvim-neo-tree/neo-tree.nvim** - File explorer
 - **ThePrimeagen/harpoon** (branch: harpoon2) - Quick file navigation
 
@@ -79,13 +79,26 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### Leader Key
 - **Leader**: `Space`
 
-### File Operations
+### File Operations (Snacks Picker)
 | Key | Action |
 |-----|--------|
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep |
 | `<leader>fb` | Find buffers |
 | `<leader>fh` | Help tags |
+| `<leader>fr` | Recent files |
+| `<leader>fw` | Grep word under cursor |
+| `<leader>f.` | Find all files (including hidden) |
+| `<leader>fo` | Old files |
+| `<leader>fk` | Find keymaps |
+| `<leader>fc` | Find commands |
+| `<leader>fj` | Jump list |
+| `<leader>fm` | Marks |
+| `<leader>fq` | Quickfix list |
+| `<leader>fl` | Location list |
+| `<leader>f/` | Search lines in open buffers |
+| `<leader>f:` | Command history |
+| `<leader>f;` | Search history |
 | `<leader>e` | Toggle file explorer |
 
 ### Window Management
@@ -129,6 +142,11 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>ca` | Code actions |
 | `gr` | Find references |
 | `<leader>f` | Format buffer (LSP) |
+| `<leader>lr` | LSP references (picker) |
+| `<leader>ld` | LSP definitions (picker) |
+| `<leader>li` | LSP implementations (picker) |
+| `<leader>ls` | Document symbols (picker) |
+| `<leader>lS` | Workspace symbols (picker) |
 
 ### Code Formatting (Conform.nvim)
 | Key | Action |
@@ -145,7 +163,8 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `[d` | Previous diagnostic |
 | `<leader>xl` | Location list |
 | `<leader>xq` | Quickfix list |
-| `<leader>xx` | Toggle diagnostics (Trouble) |
+| `<leader>xx` | All diagnostics (picker) |
+| `<leader>xb` | Buffer diagnostics (picker) |
 | `<leader>xX` | Buffer diagnostics (Trouble) |
 | `<leader>cs` | Symbols (Trouble) |
 | `<leader>cl` | LSP definitions/references (Trouble) |
@@ -163,7 +182,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>N` | Neovim News |
 | `<leader>cR` | Rename File |
 | `<leader>gB` | Git Blame Line |
-| `<leader>gf` | Lazygit Current File History |
+| `<leader>gL` | Lazygit Current File History |
 | `<leader>gl` | Lazygit Log |
 | `<leader>un` | Dismiss All Notifications |
 | `<C-/>` | Toggle Terminal |
@@ -183,10 +202,16 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>ub` | Toggle Background (dark/light) |
 | `<leader>uh` | Toggle Inlay Hints |
 
-### Git
+### Git Operations
 | Key | Action |
 |-----|--------|
 | `<leader>gg` | Git status |
+| `<leader>gF` | Git files (picker) |
+| `<leader>gc` | Git commits (picker) |
+| `<leader>gs` | Git status (picker) |
+| `<leader>gB` | Git blame line |
+| `<leader>gL` | Lazygit current file history |
+| `<leader>gl` | Lazygit log |
 
 ### Text Manipulation & Clipboard
 | Key | Action |
@@ -307,7 +332,7 @@ Currently configured for:
 │       ├── lsp.lua          # LSP configuration
 │       ├── snacks.lua       # QoL features collection
 │       ├── supermaven.lua   # AI completion
-│       ├── telescope.lua    # Fuzzy finder
+│       ├── (removed telescope) # Now using Snacks picker
 │       ├── treesitter.lua   # Syntax highlighting
 │       ├── trouble.lua      # Diagnostics viewer
 │       └── which-key.lua    # Keybinding hints
@@ -332,9 +357,9 @@ Edit `lua/config/options.lua` to change Neovim settings.
 2. Check LSP status: `:LspInfo`
 3. Check health: `:checkhealth lsp`
 
-### Telescope Errors
+### Picker Errors
 1. Install ripgrep: `sudo apt install ripgrep` (Ubuntu/Debian)
-2. Check Telescope health: `:checkhealth telescope`
+2. Check Snacks health: `:checkhealth snacks`
 
 ### Treesitter Issues
 1. Update parsers: `:TSUpdate`

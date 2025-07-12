@@ -95,6 +95,9 @@ return {
       -- Words
       words = { enabled = true },
 
+      -- Picker
+      picker = { enabled = true },
+
       -- Styles
       styles = {
         notification = {
@@ -111,9 +114,45 @@ return {
       { "<leader>bd", function() Snacks.bufdelete() end,               desc = "Delete Buffer" },
       { "<leader>cR", function() Snacks.rename.rename_file() end,      desc = "Rename File" },
       { "<leader>gB", function() Snacks.git.blame_line() end,          desc = "Git Blame Line" },
-      { "<leader>gf", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History" },
+      { "<leader>gL", function() Snacks.lazygit.log_file() end,        desc = "Lazygit Current File History" },
       { "<leader>gl", function() Snacks.lazygit.log() end,             desc = "Lazygit Log" },
       { "<leader>un", function() Snacks.notifier.hide() end,           desc = "Dismiss All Notifications" },
+      -- File operations
+      { "<leader>ff", function() Snacks.picker.files() end,            desc = "Find Files" },
+      { "<leader>fg", function() Snacks.picker.grep() end,             desc = "Live Grep" },
+      { "<leader>fb", function() Snacks.picker.buffers() end,          desc = "Find Buffers" },
+      { "<leader>fh", function() Snacks.picker.help() end,             desc = "Help Tags" },
+      { "<leader>fr", function() Snacks.picker.recent() end,           desc = "Recent Files" },
+      { "<leader>fw", function() Snacks.picker.grep_word() end,        desc = "Grep Word Under Cursor" },
+      
+      -- Git operations  
+      { "<leader>gF", function() Snacks.picker.git_files() end,        desc = "Git Files" },
+      { "<leader>gc", function() Snacks.picker.git_log() end,          desc = "Git Commits" },
+      { "<leader>gs", function() Snacks.picker.git_status() end,       desc = "Git Status" },
+      
+      -- LSP & Diagnostics
+      { "<leader>lr", function() Snacks.picker.lsp_references() end,   desc = "LSP References" },
+      { "<leader>ld", function() Snacks.picker.lsp_definitions() end,  desc = "LSP Definitions" },
+      { "<leader>li", function() Snacks.picker.lsp_implementations() end, desc = "LSP Implementations" },
+      { "<leader>ls", function() Snacks.picker.lsp_symbols() end,      desc = "LSP Document Symbols" },
+      { "<leader>lS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols" },
+      { "<leader>xx", function() Snacks.picker.diagnostics() end,      desc = "Diagnostics" },
+      { "<leader>xb", function() Snacks.picker.diagnostics_buffer() end, desc = "Buffer Diagnostics" },
+      
+      -- Navigation & Search
+      { "<leader>fk", function() Snacks.picker.keymaps() end,          desc = "Find Keymaps" },
+      { "<leader>fc", function() Snacks.picker.commands() end,         desc = "Find Commands" },
+      { "<leader>fo", function() Snacks.picker.oldfiles() end,         desc = "Old Files" },
+      { "<leader>fj", function() Snacks.picker.jumps() end,            desc = "Jump List" },
+      { "<leader>fm", function() Snacks.picker.marks() end,            desc = "Marks" },
+      { "<leader>fq", function() Snacks.picker.qflist() end,           desc = "Quickfix List" },
+      { "<leader>fl", function() Snacks.picker.loclist() end,          desc = "Location List" },
+      
+      -- Advanced
+      { "<leader>f.", function() Snacks.picker.files({ hidden = true }) end, desc = "Find All Files (including hidden)" },
+      { "<leader>f/", function() Snacks.picker.lines() end,            desc = "Search Lines in Open Buffers" },
+      { "<leader>f:", function() Snacks.picker.command_history() end,  desc = "Command History" },
+      { "<leader>f;", function() Snacks.picker.search_history() end,   desc = "Search History" },
       { "<c-/>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
       { "<c-_>",      function() Snacks.terminal() end,                desc = "Toggle Terminal" },
       { "]]",         function() Snacks.words.jump(vim.v.count1) end,  desc = "Next Reference",              mode = { "n", "t" } },
