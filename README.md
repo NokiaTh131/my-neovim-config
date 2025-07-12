@@ -4,7 +4,8 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 
 > **Note**: This README is auto-generated. Keybinding documentation is automatically updated to reflect the current configuration.
 
-<img width="1919" height="986" alt="image" src="https://github.com/user-attachments/assets/510bb930-c2c5-42d9-a876-cbfccf7762d6" />
+<img width="1919" height="989" alt="image" src="https://github.com/user-attachments/assets/6194134f-f9d1-4446-99fc-cdc876588dc2" />
+
 
 ## Requirements
 
