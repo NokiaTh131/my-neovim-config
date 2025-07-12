@@ -239,8 +239,8 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### Completion (Blink.cmp)
 | Key | Action |
 |-----|--------|
-| `<C-q>` | Select previous completion |
-| `<C-]>` | Select next completion |
+| `<C-i>` | Select previous completion |
+| `<C-p>` | Select next completion |
 | `<CR>` | Accept completion |
 
 ### Navigation & Search

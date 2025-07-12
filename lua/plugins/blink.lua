@@ -8,8 +8,8 @@ return {
     opts = {
       keymap = {
         preset = "default",
-        ['<C-q>'] = { 'select_prev', 'fallback' },
-        ['<C-]>'] = { 'select_next', 'fallback' },
+        ['<C-i>'] = { 'select_prev', 'fallback' },
+        ['<C-p>'] = { 'select_next', 'fallback' },
         ['<CR>'] = { 'select_and_accept', 'fallback' },
 
       },
