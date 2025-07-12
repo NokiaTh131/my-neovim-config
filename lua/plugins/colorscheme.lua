@@ -1,46 +1,52 @@
 return {
   {
-    "neanias/everforest-nvim",
+    "rose-pine/neovim",
+    name = "rose-pine",
     lazy = false,
     priority = 1000,
     config = function()
-      require("everforest").setup({
-        background = "hard",
-        transparent_background_level = 2,
-        italics = true,
-        disable_italic_comments = false,
-        sign_column_background = "none",
-        ui_contrast = "low",
-        dim_inactive_windows = false,
-        diagnostic_text_highlight = false,
-        diagnostic_virtual_text = "coloured",
-        diagnostic_line_highlight = false,
-        spell_foreground = false,
-        show_eob = true,
-        float_style = "bright",
-        inlay_hints_background = "none",
-        on_highlights = function(highlights, palette)
-          highlights.CursorLine = { bg = "none" }
-          highlights.ColorColumn = { bg = "none" }
-        end,
-        colours_override = function(palette)
-          return {}
-        end,
+      require("rose-pine").setup({
+        variant = "auto",
+        dark_variant = "main",
+        bold_vert_split = false,
+        dim_nc_background = false,
+        disable_background = true,
+        disable_float_background = true,
+        disable_italics = false,
+        groups = {
+          background = "base",
+          background_nc = "_experimental_nc",
+          panel = "surface",
+          panel_nc = "base",
+          border = "highlight_med",
+          comment = "muted",
+          link = "iris",
+          punctuation = "subtle",
+          error = "love",
+          hint = "iris",
+          info = "foam",
+          warn = "gold",
+          headings = {
+            h1 = "iris",
+            h2 = "foam",
+            h3 = "rose",
+            h4 = "gold",
+            h5 = "pine",
+            h6 = "foam",
+          }
+        },
+        highlight_groups = {
+          ColorColumn = { bg = "none" },
+          CursorLine = { bg = "none" },
+        }
       })
-      vim.cmd([[colorscheme everforest]])
-      
-      -- Make everything transparent
+      vim.cmd("colorscheme rose-pine")
+
+      -- Make everything transparent except completion popups
       vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
-      vim.api.nvim_set_hl(0, "SignColumn", { bg = "none" })
-      vim.api.nvim_set_hl(0, "StatusLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "StatusLineNC", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLine", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLineFill", { bg = "none" })
-      vim.api.nvim_set_hl(0, "TabLineSel", { bg = "none" })
-      vim.api.nvim_set_hl(0, "VertSplit", { bg = "none" })
-      vim.api.nvim_set_hl(0, "WinSeparator", { bg = "none" })
-      vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
+      --
+      -- LSP/Completion popup backgrounds (keep visible)
+      vim.api.nvim_set_hl(0, "Pmenu", { bg = "#1f1d2e" })
     end,
   },
 }

@@ -116,7 +116,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 |-----|--------|
 | `<S-h>` | Previous buffer |
 | `<S-l>` | Next buffer |
-| `<leader>nn` | Switch to other buffer |
+| `<leader><leader>` | Switch to other buffer |
 | `<leader>bd` | Delete buffer |
 
 ### Harpoon (Quick Navigation)
@@ -239,8 +239,8 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 ### Completion (Blink.cmp)
 | Key | Action |
 |-----|--------|
-| `<C-i>` | Select previous completion |
-| `<C-p>` | Select next completion |
+| `<C-p>` | Select previous completion |
+| `<C-i>` | Select next completion |
 | `<CR>` | Accept completion |
 
 ### Navigation & Search
