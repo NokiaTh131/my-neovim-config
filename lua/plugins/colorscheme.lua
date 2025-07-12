@@ -56,6 +56,15 @@ return {
       })
 
       vim.cmd("colorscheme rose-pine-main")
+      
+      -- Override LSP suggestion menu to be non-transparent
+      vim.api.nvim_set_hl(0, "BlinkCmpMenu", { bg = "#191724", fg = "#e0def4" })
+      vim.api.nvim_set_hl(0, "BlinkCmpMenuBorder", { bg = "#191724", fg = "#524f67" })
+      vim.api.nvim_set_hl(0, "BlinkCmpMenuSelection", { bg = "#26233a", fg = "#e0def4" })
+      vim.api.nvim_set_hl(0, "BlinkCmpDoc", { bg = "#191724", fg = "#e0def4" })
+      vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#191724", fg = "#524f67" })
+      vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "#191724", fg = "#e0def4" })
+      vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = "#191724", fg = "#524f67" })
     end,
   },
 }
