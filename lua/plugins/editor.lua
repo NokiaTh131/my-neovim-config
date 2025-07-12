@@ -40,6 +40,7 @@ return {
     "akinsho/bufferline.nvim",
     version = "*",
     dependencies = "nvim-tree/nvim-web-devicons",
+    event = "ColorScheme",
     config = function()
       require("bufferline").setup({
         options = {
@@ -55,6 +56,7 @@ return {
             },
           },
         },
+        highlights = require("rose-pine.plugins.bufferline"),
       })
       vim.keymap.set("n", "<leader><leader>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
     end,
