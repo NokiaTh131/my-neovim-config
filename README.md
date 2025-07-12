@@ -40,7 +40,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 - **lazy.nvim** - Modern plugin manager
 
 ### Colorscheme & UI
-- **neanias/everforest-nvim** - Beautiful nature-inspired colorscheme with transparency
+- **rose-pine/neovim** - Beautiful nature-inspired colorscheme with transparency
 - **nvim-lualine/lualine.nvim** - Statusline
 - **akinsho/bufferline.nvim** - Buffer tabs
 - **nvim-tree/nvim-web-devicons** - File icons

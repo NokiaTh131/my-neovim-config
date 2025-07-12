@@ -31,7 +31,7 @@ return {
     config = function()
       require("lualine").setup({
         options = {
-          theme = "everforest",
+          theme = "rose-pine",
         },
       })
     end,
@@ -57,7 +57,6 @@ return {
         },
       })
       vim.keymap.set("n", "<leader><leader>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
-      vim.keymap.set("n", "<leader>w", ":bd<CR>", { desc = "Close current buffer" })
     end,
   },
   {
