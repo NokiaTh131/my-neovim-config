@@ -1,27 +1,25 @@
 return {
   {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup({
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗"
-          }
+    "mason-org/mason.nvim",
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗"
         }
-      })
-    end,
+      }
+    }
   },
   {
-    "williamboman/mason-lspconfig.nvim",
-    dependencies = { "williamboman/mason.nvim" },
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = { "gopls", "rust_analyzer", "bashls", "lua_ls" },
-        automatic_installation = true,
-      })
-    end,
+    "mason-org/mason-lspconfig.nvim",
+    opts = {
+      ensure_installed = { "gopls", "rust_analyzer", "bashls", "lua_ls", "pyright" },
+    },
+    dependencies = {
+      { "mason-org/mason.nvim", opts = {} },
+      "neovim/nvim-lspconfig",
+    },
   },
   {
     "neovim/nvim-lspconfig",
@@ -31,26 +29,7 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
-      local lspconfig = require("lspconfig")
-      local capabilities = require("blink.cmp").get_lsp_capabilities()
-      
-      -- Setup gopls
-      lspconfig.gopls.setup({
-        capabilities = capabilities,
-        settings = {
-          gopls = {
-            analyses = {
-              unusedparams = true,
-            },
-            staticcheck = true,
-            gofumpt = true,
-          },
-        },
-      })
-
-      -- Setup rust-analyzer
-      lspconfig.rust_analyzer.setup({
-        capabilities = capabilities,
+      vim.lsp.config('rust_analyzer', {
         settings = {
           ["rust-analyzer"] = {
             cargo = {
@@ -63,50 +42,33 @@ return {
         },
       })
 
-      -- Setup bash-language-server
-      lspconfig.bashls.setup({
-        capabilities = capabilities,
-      })
-
-      -- Setup lua_ls
-      lspconfig.lua_ls.setup({
-        capabilities = capabilities,
+      vim.lsp.config('gopls', {
         settings = {
-          Lua = {
-            runtime = {
-              version = "LuaJIT",
-            },
-            diagnostics = {
-              globals = { "vim" },
-            },
-            workspace = {
-              library = vim.api.nvim_get_runtime_file("", true),
-              checkThirdParty = false,
-            },
-            telemetry = {
-              enable = false,
+          gopls = {
+            analyses = {
+              unusedparams = true,
+              nilness = true,
+              shadow = true,
+              buildtag = true,
+              printf = true,
+              unreachable = true,
             },
           },
         },
       })
 
-      -- LSP keymaps
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("UserLspConfig", {}),
-        callback = function(ev)
-          local opts = { buffer = ev.buf }
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-          vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-          vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
-          vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts)
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-          vim.keymap.set("n", "<leader>f", function()
-            vim.lsp.buf.format { async = true }
-          end, opts)
-        end,
-      })
+      vim.lsp.config['luals'] = {
+        cmd = { 'lua-language-server' },
+        filetypes = { 'lua' },
+        root_markers = { { '.luarc.json', '.luarc.jsonc' }, '.git' },
+        settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            }
+          }
+        }
+      }
     end,
   },
 }

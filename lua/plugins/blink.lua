@@ -4,7 +4,7 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets"
     },
-    version = "v0.*",
+    version = "v1.*",
     opts = {
       keymap = {
         preset = "default",
@@ -19,13 +19,13 @@ return {
       },
 
       appearance = {
-        use_nvim_cmp_as_default = true,
         nerd_font_variant = 'mono'
       },
 
-      signature = {
-        enabled = true
-      }
-    }
+      signature = { enabled = true },
+
+
+    },
+    opts_extend = { "sources.default" }
   }
 }
