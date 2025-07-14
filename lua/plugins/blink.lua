@@ -26,7 +26,7 @@ return {
       },
 
       cmdline = {
-        keymap = { preset = 'inherit' },
+        keymap = { preset = 'default' },
         completion = { menu = { auto_show = true } },
       },
 
