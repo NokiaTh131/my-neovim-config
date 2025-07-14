@@ -36,7 +36,7 @@ return {
 
       signature = { enabled = true },
 
-
+      fuzzy = { implementation = "rust" }
     },
     opts_extend = { "sources.default" }
   }
