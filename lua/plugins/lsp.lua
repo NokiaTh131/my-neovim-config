@@ -14,7 +14,7 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "gopls", "rust_analyzer", "bashls", "lua_ls", "pyright" },
+      ensure_installed = { "gopls", "rust_analyzer", "lua_ls" },
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
@@ -29,6 +29,34 @@ return {
       "saghen/blink.cmp",
     },
     config = function()
+      -- Configure diagnostic display
+      vim.diagnostic.config({
+        virtual_text = {
+          spacing = 4,
+          source = "if_many",
+          prefix = "●",
+        },
+        signs = {
+          text = {
+            [vim.diagnostic.severity.ERROR] = "󰅚",
+            [vim.diagnostic.severity.WARN] = "󰀪",
+            [vim.diagnostic.severity.HINT] = "󰌶",
+            [vim.diagnostic.severity.INFO] = "󰋽",
+          },
+        },
+        update_in_insert = false,
+        underline = true,
+        severity_sort = true,
+        float = {
+          focusable = false,
+          style = "minimal",
+          border = "rounded",
+          source = "always",
+          header = "",
+          prefix = "",
+        },
+      })
+
       vim.lsp.config('rust_analyzer', {
         settings = {
           ["rust-analyzer"] = {
@@ -37,6 +65,15 @@ return {
             },
             check = {
               command = "clippy",
+            },
+            diagnostics = {
+              enable = true,
+              experimental = {
+                enable = true,
+              },
+            },
+            procMacro = {
+              enable = true,
             },
           },
         },
@@ -52,7 +89,41 @@ return {
               buildtag = true,
               printf = true,
               unreachable = true,
+              unusedwrite = true,
+              useany = true,
+              fillreturns = true,
+              nonewvars = true,
+              undeclaredname = true,
+              unusedvariable = true,
             },
+            codelenses = {
+              gc_details = false,
+              generate = true,
+              regenerate_cgo = true,
+              run_govulncheck = true,
+              test = true,
+              tidy = true,
+              upgrade_dependency = true,
+              vendor = true,
+            },
+            hints = {
+              assignVariableTypes = true,
+              compositeLiteralFields = true,
+              compositeLiteralTypes = true,
+              constantValues = true,
+              functionTypeParameters = true,
+              parameterNames = true,
+              rangeVariableTypes = true,
+            },
+            buildFlags = { "-tags", "integration" },
+            completeUnimported = true,
+            usePlaceholders = true,
+            matcher = "Fuzzy",
+            experimentalPostfixCompletions = true,
+            gofumpt = true,
+            staticcheck = true,
+            semanticTokens = true,
+            vulncheck = "Imports",
           },
         },
       })

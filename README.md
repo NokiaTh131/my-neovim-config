@@ -11,7 +11,6 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 
 - **Neovim 0.11.2+**
 - **Git**
-- **Node.js** (for some language servers)
 - **Go** (for gopls)
 - **Rust** (for rust-analyzer)
 - **ripgrep** (for live grep functionality)
@@ -49,7 +48,7 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 
 ### File Management & Navigation
 - **folke/snacks.nvim** - Advanced picker/finder with 40+ built-in sources
-- **nvim-neo-tree/neo-tree.nvim** - File explorer
+- **stevearc/oil.nvim** - File explorer that lets you edit your filesystem like a buffer
 - **ThePrimeagen/harpoon** (branch: harpoon2) - Quick file navigation
 
 ### LSP & Completion
@@ -100,7 +99,24 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 | `<leader>f/` | Search lines in open buffers |
 | `<leader>f:` | Command history |
 | `<leader>f;` | Search history |
-| `<leader>e` | Toggle file explorer |
+| `<leader>e` | Open parent directory |
+
+### Oil.nvim (File Explorer)
+| Key | Action |
+|-----|--------|
+| `<CR>` | Open file/directory |
+| `<C-s>` | Open in vertical split |
+| `<C-h>` | Open in horizontal split |
+| `<C-t>` | Open in new tab |
+| `<C-p>` | Preview file |
+| `<C-c>` | Close oil buffer |
+| `<C-l>` | Refresh |
+| `-` | Go to parent directory |
+| `_` | Open current working directory |
+| `g?` | Show help |
+| `g.` | Toggle hidden files |
+| `gs` | Change sort order |
+| `gx` | Open with system default |
 
 ### Window Management
 | Key | Action |
@@ -281,10 +297,6 @@ Conform.nvim supports these formatters (install as needed):
 ### Lua
 - **stylua** - `cargo install stylua`
 
-### Python  
-- **black** - `pip install black`
-- **isort** - `pip install isort`
-
 ### Rust
 - **rustfmt** - Included with Rust toolchain
 
@@ -292,16 +304,12 @@ Conform.nvim supports these formatters (install as needed):
 - **gofmt** - Included with Go
 - **goimports** - `go install golang.org/x/tools/cmd/goimports@latest`
 
-### JavaScript/TypeScript
-- **prettier** - `npm install -g prettier`
-- **prettierd** - `npm install -g @fsouza/prettierd` (faster)
-
 ### Adding More Language Servers
 
 Edit `lua/plugins/lsp.lua` and add servers to the `ensure_installed` list:
 
 ```lua
-ensure_installed = { "gopls", "rust_analyzer", "pyright", "tsserver" }
+ensure_installed = { "gopls", "rust_analyzer" }
 ```
 
 ## Treesitter Languages

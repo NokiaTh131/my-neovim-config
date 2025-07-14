@@ -65,6 +65,12 @@ return {
       vim.api.nvim_set_hl(0, "BlinkCmpDocBorder", { bg = "#191724", fg = "#524f67" })
       vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelp", { bg = "#191724", fg = "#e0def4" })
       vim.api.nvim_set_hl(0, "BlinkCmpSignatureHelpBorder", { bg = "#191724", fg = "#524f67" })
+      
+      -- Override diagnostic virtual text to be non-transparent
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextError", { bg = "#2d2a40", fg = "#eb6f92" })
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "#2d2a3a", fg = "#f6c177" })
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "#2a2d3a", fg = "#9ccfd8" })
+      vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "#2a2d35", fg = "#c4a7e7" })
     end,
   },
 }
