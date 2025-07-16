@@ -25,11 +25,11 @@ return {
         sort = { "level", "added" },
         level = vim.log.levels.TRACE,
         icons = {
-          error = " ",
-          warn = " ",
-          info = " ",
-          debug = " ",
-          trace = " ",
+          error = "",
+          warn = "",
+          info = "",
+          debug = "",
+          trace = "",
         },
         keep = function(notif)
           return vim.fn.getcmdtype() ~= ""
