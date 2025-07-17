@@ -20,14 +20,6 @@ map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
 
-map("n", "<leader>gg", function()
-  local cmd = { "git", "status" }
-  vim.cmd("tabnew")
-  vim.fn.termopen(cmd, {
-    cwd = vim.fn.getcwd(),
-  })
-end, { desc = "Git Status" })
-
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 map("n", "<C-h>", "<C-w>h", { desc = "Go to left window", remap = true })
@@ -68,4 +60,3 @@ map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
 map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
-
