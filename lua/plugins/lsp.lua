@@ -32,9 +32,9 @@ return {
       -- Configure diagnostic display
       vim.diagnostic.config({
         virtual_text = {
-          spacing = 4,
-          source = "if_many",
+          spacing = 2,
           prefix = "●",
+          severity = { min = vim.diagnostic.severity.ERROR },
         },
         signs = {
           text = {
@@ -44,17 +44,9 @@ return {
             [vim.diagnostic.severity.INFO] = "󰋽",
           },
         },
-        update_in_insert = false,
         underline = true,
+        update_in_insert = true,
         severity_sort = true,
-        float = {
-          focusable = false,
-          style = "minimal",
-          border = "rounded",
-          source = "always",
-          header = "",
-          prefix = "",
-        },
       })
 
       vim.lsp.config('rust_analyzer', {

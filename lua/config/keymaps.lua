@@ -10,12 +10,6 @@ local function map(mode, lhs, rhs, opts)
   end
 end
 
-map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Location List" })
-map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Quickfix List" })
-
-map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
-map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
-
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
 map("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
 map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
