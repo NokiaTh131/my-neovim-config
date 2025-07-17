@@ -36,9 +36,6 @@ return {
         end,
       },
 
-      -- Git utilities
-      git = { enabled = true },
-
       -- Terminal
       terminal = {
         enabled = true,
@@ -110,9 +107,6 @@ return {
       { "<leader>n",  function() Snacks.notifier.show_history() end,         desc = "Notification History" },
       { "<leader>bd", function() Snacks.bufdelete() end,                     desc = "Delete Buffer" },
       { "<leader>cR", function() Snacks.rename.rename_file() end,            desc = "Rename File" },
-      { "<leader>gB", function() Snacks.git.blame_line() end,                desc = "Git Blame Line" },
-      { "<leader>gL", function() Snacks.lazygit.log_file() end,              desc = "Lazygit Current File History" },
-      { "<leader>gl", function() Snacks.lazygit.log() end,                   desc = "Lazygit Log" },
       { "<leader>un", function() Snacks.notifier.hide() end,                 desc = "Dismiss All Notifications" },
       -- File operations
       { "<leader>ff", function() Snacks.picker.files() end,                  desc = "Find Files" },
@@ -121,11 +115,6 @@ return {
       { "<leader>fh", function() Snacks.picker.help() end,                   desc = "Help Tags" },
       { "<leader>fr", function() Snacks.picker.recent() end,                 desc = "Recent Files" },
       { "<leader>fw", function() Snacks.picker.grep_word() end,              desc = "Grep Word Under Cursor" },
-
-      -- Git operations
-      { "<leader>gF", function() Snacks.picker.git_files() end,              desc = "Git Files" },
-      { "<leader>gc", function() Snacks.picker.git_log() end,                desc = "Git Commits" },
-      { "<leader>gs", function() Snacks.picker.git_status() end,             desc = "Git Status" },
 
       -- LSP & Diagnostics
       { "<leader>lr", function() Snacks.picker.lsp_references() end,         desc = "LSP References" },
