@@ -318,35 +318,7 @@ Currently configured for:
 - Go
 - Rust  
 - Lua
-- Python
 - Vim
-- Query
-
-## Directory Structure
-
-```
-~/.config/nvim/
-├── init.lua                 # Main entry point
-├── lua/
-│   ├── config/
-│   │   ├── lazy.lua         # Lazy.nvim setup
-│   │   ├── options.lua      # Neovim options
-│   │   └── keymaps.lua      # Global keymaps
-│   └── plugins/
-│       ├── blink.lua        # Blink.cmp completion
-│       ├── colorscheme.lua  # Kanagawa theme
-│       ├── conform.lua      # Code formatting
-│       ├── editor.lua       # Editor enhancements
-│       ├── harpoon.lua      # Harpoon navigation
-│       ├── lsp.lua          # LSP configuration
-│       ├── snacks.lua       # QoL features collection
-│       ├── supermaven.lua   # AI completion
-│       ├── (removed telescope) # Now using Snacks picker
-│       ├── treesitter.lua   # Syntax highlighting
-│       ├── trouble.lua      # Diagnostics viewer
-│       └── which-key.lua    # Keybinding hints
-└── README.md               # This file
-```
 
 ## Customization
 
