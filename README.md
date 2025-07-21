@@ -133,7 +133,8 @@ A modern, transparent Neovim configuration with essential plugins for developmen
 |-----|--------|
 | `<S-h>` | Previous buffer |
 | `<S-l>` | Next buffer |
-| `<leader><leader>` | Switch to other buffer |
+| `<Tab>` | Switch to next buffer |
+| `<S-Tab>` | Switch to previous buffer |
 | `<leader>bd` | Delete buffer |
 
 ### Harpoon (Quick Navigation)
