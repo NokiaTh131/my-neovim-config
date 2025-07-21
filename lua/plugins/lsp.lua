@@ -14,7 +14,7 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "gopls", "rust_analyzer", "lua_ls" },
+      ensure_installed = { "gopls", "rust_analyzer", "lua_ls", "pyright" },
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
@@ -132,6 +132,18 @@ return {
           }
         }
       }
+
+      vim.lsp.config('pyright', {
+        settings = {
+          python = {
+            analysis = {
+              autoSearchPaths = true,
+              useLibraryCodeForTypes = true,
+              diagnosticMode = "workspace",
+            },
+          },
+        },
+      })
     end,
   },
 }
