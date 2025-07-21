@@ -14,7 +14,7 @@ return {
       dapui.setup()
 
       -- Setup virtual text
-      require("nvim-dap-virtual-text").setup()
+      require("nvim-dap-virtual-text").setup { enabled = true }
 
       -- Auto open/close dap-ui
       dap.listeners.before.attach.dapui_config = function()
@@ -83,6 +83,31 @@ return {
           end,
           cwd = "${workspaceFolder}",
           stopOnEntry = false,
+        },
+      }
+
+      -- Python configuration
+      dap.adapters.python = {
+        type = "executable",
+        command = vim.fn.stdpath("data") .. "/mason/packages/debugpy/venv/bin/python",
+        args = { "-m", "debugpy.adapter" },
+      }
+
+      dap.configurations.python = {
+        {
+          type = "python",
+          request = "launch",
+          name = "Launch file",
+          program = "${file}", -- debug current file
+          pythonPath = function()
+            -- Use virtualenv if available, else system Python
+            local venv = os.getenv("VIRTUAL_ENV")
+            if venv then
+              return venv .. "/bin/python"
+            else
+              return "/usr/bin/python3"
+            end
+          end,
         },
       }
 
