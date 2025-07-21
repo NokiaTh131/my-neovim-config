@@ -19,6 +19,9 @@ return {
           "query",
         },
         auto_install = true,
+        sync_install = false,
+        modules = {},
+        ignore_install = {},
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = false,
