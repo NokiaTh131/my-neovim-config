@@ -139,8 +139,8 @@ return {
       { "<leader>f/", function() Snacks.picker.lines() end,                  desc = "Search Lines in Open Buffers" },
       { "<leader>f:", function() Snacks.picker.command_history() end,        desc = "Command History" },
       { "<leader>f;", function() Snacks.picker.search_history() end,         desc = "Search History" },
-      { "<c-/>",      function() Snacks.terminal() end,                      desc = "Toggle Terminal" },
-      { "<c-_>",      function() Snacks.terminal() end,                      desc = "Toggle Terminal" },
+      { "<c-/>",      function() Snacks.terminal() end,                      desc = "Toggle Terminal", mode = { "n", "t" } },
+      { "<c-_>",      function() Snacks.terminal() end,                      desc = "Toggle Terminal", mode = { "n", "t" } },
       { "]]",         function() Snacks.words.jump(vim.v.count1) end,        desc = "Next Reference",                   mode = { "n", "t" } },
       { "[[",         function() Snacks.words.jump(-vim.v.count1) end,       desc = "Prev Reference",                   mode = { "n", "t" } },
       {
