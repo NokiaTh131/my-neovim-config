@@ -31,11 +31,7 @@ return {
     config = function()
       -- Configure diagnostic display
       vim.diagnostic.config({
-        virtual_text = {
-          spacing = 2,
-          prefix = "●",
-          severity = { min = vim.diagnostic.severity.ERROR },
-        },
+        virtual_text = false,
         signs = {
           text = {
             [vim.diagnostic.severity.ERROR] = "󰅚",
@@ -45,8 +41,43 @@ return {
           },
         },
         underline = true,
-        update_in_insert = true,
+        update_in_insert = false,
         severity_sort = true,
+      })
+
+      local virtual_text_config = {
+        spacing = 2,
+        prefix = "●",
+      }
+
+      local group = vim.api.nvim_create_augroup("DiagnosticVirtualText", { clear = true })
+
+      -- Show virtual text when entering normal mode
+      vim.api.nvim_create_autocmd("ModeChanged", {
+        group = group,
+        pattern = "*:n",
+        callback = function()
+          vim.diagnostic.config({ virtual_text = virtual_text_config })
+        end,
+      })
+
+      -- Hide virtual text when leaving normal mode
+      vim.api.nvim_create_autocmd("ModeChanged", {
+        group = group,
+        pattern = "n:*",
+        callback = function()
+          vim.diagnostic.config({ virtual_text = false })
+        end,
+      })
+
+      -- Also show virtual text when first entering a buffer in normal mode
+      vim.api.nvim_create_autocmd("BufEnter", {
+        group = group,
+        callback = function()
+          if vim.fn.mode() == "n" then
+            vim.diagnostic.config({ virtual_text = virtual_text_config })
+          end
+        end,
       })
 
       vim.lsp.config('rust_analyzer', {
