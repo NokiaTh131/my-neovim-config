@@ -16,28 +16,15 @@ return {
     end,
   },
   {
-    "norcalli/nvim-colorizer.lua",
-    ft = { "css", "scss", "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
-    config = function()
-      require("colorizer").setup({
-        "css", "scss", "html", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte"
-      }, {
-        RGB = true,
-        RRGGBB = true,
-        names = false,
-        RRGGBBAA = true,
-        rgb_fn = true,
-        hsl_fn = true,
-        css = true,
-        css_fn = true,
-      })
-    end,
+    "catgoose/nvim-colorizer.lua",
+    event = "BufReadPre",
+    opts = { -- set to setup table
+    },
   },
   {
     "mattn/emmet-vim",
     ft = { "html", "css", "scss", "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "svelte" },
     config = function()
-      vim.g.user_emmet_leader_key = '<C-z>'
       vim.g.user_emmet_settings = {
         javascript = {
           extends = 'jsx',
@@ -83,7 +70,7 @@ return {
     "folke/todo-comments.nvim",
     event = "VimEnter",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = { 
+    opts = {
       signs = false,
       keywords = {
         FIX = {
@@ -100,4 +87,33 @@ return {
       }
     }
   },
+  {
+    "roobert/tailwindcss-colorizer-cmp.nvim",
+    {
+      "NvChad/nvim-colorizer.lua",
+      dependencies = { "nvim-treesitter/nvim-treesitter" },
+      opts = {},
+      config = function()
+        local nvchadcolorizer = require("colorizer")
+        local tailwindcolorizer = require("tailwindcss-colorizer-cmp")
+
+        nvchadcolorizer.setup({
+          user_default_options = {
+            tailwind = true,
+          },
+          filetypes = { "html", "css", "javascript", "typescript", "jsx", "tsx", "vue", "svelte" },
+        })
+
+        tailwindcolorizer.setup({
+          color_square_width = 2,
+        })
+
+        vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+          callback = function()
+            vim.cmd("ColorizerAttachToBuffer")
+          end,
+        })
+      end,
+    },
+  }
 }

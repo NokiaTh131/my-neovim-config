@@ -110,7 +110,6 @@ return {
           end,
         },
       }
-
       -- Key mappings
       vim.keymap.set("n", "<F1>", dap.continue, { desc = "Debug: Start/Continue" })
       vim.keymap.set("n", "<F2>", dap.step_into, { desc = "Debug: Step Into" })

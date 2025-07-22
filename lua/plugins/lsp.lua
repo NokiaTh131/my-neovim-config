@@ -1,5 +1,9 @@
 return {
   {
+    "b0o/schemastore.nvim",
+    lazy = true,
+  },
+  {
     "mason-org/mason.nvim",
     opts = {
       ui = {
@@ -14,11 +18,29 @@ return {
   {
     "mason-org/mason-lspconfig.nvim",
     opts = {
-      ensure_installed = { "gopls", "rust_analyzer", "lua_ls", "pyright" },
+      ensure_installed = {
+        "gopls", "rust_analyzer", "lua_ls", "pyright",
+        "ts_ls", "eslint", "html", "cssls", "tailwindcss", "emmet_ls", "jsonls"
+      },
     },
     dependencies = {
       { "mason-org/mason.nvim", opts = {} },
       "neovim/nvim-lspconfig",
+    },
+  },
+  {
+    "jay-babu/mason-nvim-dap.nvim",
+    dependencies = {
+      "mason-org/mason.nvim",
+      "mfussenegger/nvim-dap",
+    },
+    opts = {
+      ensure_installed = {
+        "delve",
+        "codelldb",
+        "debugpy",
+      },
+      automatic_installation = true,
     },
   },
   {
@@ -174,6 +196,29 @@ return {
             },
           },
         },
+      })
+
+      vim.lsp.config('ts_ls', {
+        single_file_support = false,
+        init_options = {
+          preferences = {
+            includeCompletionsWithSnippetText = true,
+            includeCompletionsForImportStatements = true,
+          },
+        },
+      })
+
+      vim.lsp.config('emmet_ls', {
+        filetypes = {
+          'html', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less', 'vue', 'svelte'
+        },
+        init_options = {
+          html = {
+            options = {
+              ["bem.enabled"] = true,
+            },
+          },
+        }
       })
     end,
   },
