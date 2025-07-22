@@ -20,7 +20,7 @@ return {
     opts = {
       ensure_installed = {
         "gopls", "rust_analyzer", "lua_ls", "pyright",
-        "ts_ls", "eslint", "html", "cssls", "tailwindcss", "emmet_ls", "jsonls"
+        "ts_ls", "eslint", "html", "cssls", "tailwindcss", "emmet_ls", "jsonls", "dockerls"
       },
     },
     dependencies = {
