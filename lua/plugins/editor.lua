@@ -81,6 +81,30 @@ return {
         options = {
           theme = "rose-pine",
         },
+        sections = {
+          lualine_c = {
+            {
+              'filename',
+              cond = function()
+                return vim.bo.filetype ~= 'oil'
+              end
+            },
+            {
+              function()
+                if vim.bo.filetype == 'oil' then
+                  local path = vim.fn.expand "%"
+                  path = path:gsub("oil://", "")
+                  return "  " .. vim.fn.fnamemodify(path, ":.")
+                end
+                return ''
+              end,
+              cond = function()
+                return vim.bo.filetype == 'oil'
+              end,
+              icon = ''
+            }
+          }
+        }
       })
     end,
   },
