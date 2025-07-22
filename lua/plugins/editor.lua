@@ -8,9 +8,6 @@ return {
         default_file_explorer = true,
         columns = {
           "icon",
-          "permissions",
-          "size",
-          "mtime",
         },
         buf_options = {
           buflisted = false,
@@ -39,9 +36,6 @@ return {
         keymaps = {
           ["g?"] = "actions.show_help",
           ["<CR>"] = "actions.select",
-          ["<C-s>"] = "actions.select_vsplit",
-          ["<C-h>"] = "actions.select_split",
-          ["<C-t>"] = "actions.select_tab",
           ["<C-p>"] = "actions.preview",
           ["<C-c>"] = "actions.close",
           ["<C-l>"] = "actions.refresh",
@@ -56,12 +50,9 @@ return {
         },
         use_default_keymaps = true,
         view_options = {
-          show_hidden = false,
-          is_hidden_file = function(name, bufnr)
-            return vim.startswith(name, ".")
-          end,
-          is_always_hidden = function(name, bufnr)
-            return false
+          show_hidden = true,
+          is_always_hidden = function(name, _)
+            return name == ".." or name == ".git"
           end,
           sort = {
             { "type", "asc" },
@@ -70,7 +61,7 @@ return {
         },
       })
       vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
-      
+
       -- Integration with snacks.nvim rename feature
       vim.api.nvim_create_autocmd("User", {
         pattern = "OilActionsPost",
