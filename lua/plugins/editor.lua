@@ -94,7 +94,7 @@ return {
                 if vim.bo.filetype == 'oil' then
                   local path = vim.fn.expand "%"
                   path = path:gsub("oil://", "")
-                  return "  " .. vim.fn.fnamemodify(path, ":.")
+                  return "" .. vim.fn.fnamemodify(path, ":.")
                 end
                 return ''
               end,
