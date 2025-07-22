@@ -9,6 +9,15 @@ return {
         columns = {
           "icon",
         },
+        float = {
+          padding = 2,
+          max_width = 0,
+          max_height = 0,
+          border = "rounded",
+          win_options = {
+            winblend = 0,
+          },
+        },
         buf_options = {
           buflisted = false,
           bufhidden = "hide",
@@ -37,7 +46,7 @@ return {
           ["g?"] = "actions.show_help",
           ["<CR>"] = "actions.select",
           ["<C-p>"] = "actions.preview",
-          ["<C-c>"] = "actions.close",
+          ["q"] = "actions.close",
           ["<C-l>"] = "actions.refresh",
           ["-"] = "actions.parent",
           ["_"] = "actions.open_cwd",
