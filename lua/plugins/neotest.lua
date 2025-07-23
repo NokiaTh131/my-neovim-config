@@ -7,8 +7,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		-- Language adapters
 		"fredrikaverpil/neotest-golang",
-		"rouge8/neotest-rust",
-		"nvim-neotest/neotest-python",
 		"nvim-neotest/neotest-jest",
 		"nvim-neotest/neotest-plenary",
 		"leoluz/nvim-dap-go",
@@ -21,13 +19,7 @@ return {
 				require("neotest-golang")({
 					dap = { justMyCode = false },
 				}),
-				require("neotest-rust")({
-					args = { "--no-capture" },
-				}),
-				require("neotest-python")({
-					args = { "--log-level", "DEBUG" },
-					runner = "pytest",
-				}),
+				require("rustaceanvim.neotest"),
 				require("neotest-jest")({
 					jestCommand = "npm test --",
 					jestConfigFile = "jest.config.js",

@@ -20,9 +20,7 @@ return {
 		opts = {
 			ensure_installed = {
 				"gopls",
-				"rust_analyzer",
 				"lua_ls",
-				"pyright",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -36,6 +34,7 @@ return {
 			"neovim/nvim-lspconfig",
 		},
 	},
+
 	{
 		"jay-babu/mason-nvim-dap.nvim",
 		dependencies = {
@@ -110,101 +109,19 @@ return {
 				end,
 			})
 
-			vim.lsp.config("rust_analyzer", {
-				settings = {
-					["rust-analyzer"] = {
-						cargo = {
-							allFeatures = true,
-						},
-						check = {
-							command = "clippy",
-						},
-						diagnostics = {
-							enable = true,
-							experimental = {
-								enable = true,
-							},
-						},
-						procMacro = {
-							enable = true,
-						},
-					},
-				},
-			})
-
-			vim.lsp.config("gopls", {
-				settings = {
-					gopls = {
-						analyses = {
-							unusedparams = true,
-							nilness = true,
-							shadow = true,
-							buildtag = true,
-							printf = true,
-							unreachable = true,
-							unusedwrite = true,
-							useany = true,
-							fillreturns = true,
-							nonewvars = true,
-							undeclaredname = true,
-							unusedvariable = true,
-						},
-						codelenses = {
-							gc_details = false,
-							generate = true,
-							regenerate_cgo = true,
-							run_govulncheck = true,
-							test = true,
-							tidy = true,
-							upgrade_dependency = true,
-							vendor = true,
-						},
-						hints = {
-							assignVariableTypes = true,
-							compositeLiteralFields = true,
-							compositeLiteralTypes = true,
-							constantValues = true,
-							functionTypeParameters = true,
-							parameterNames = true,
-							rangeVariableTypes = true,
-						},
-						buildFlags = { "-tags", "integration" },
-						completeUnimported = true,
-						usePlaceholders = true,
-						matcher = "Fuzzy",
-						experimentalPostfixCompletions = true,
-						gofumpt = true,
-						staticcheck = true,
-						semanticTokens = true,
-						vulncheck = "Imports",
-					},
-				},
-			})
-
-			vim.lsp.config["luals"] = {
-				cmd = { "lua-language-server" },
-				filetypes = { "lua" },
-				root_markers = { { ".luarc.json", ".luarc.jsonc" }, ".git" },
+			vim.lsp.config["lua_ls"] = {
 				settings = {
 					Lua = {
-						runtime = {
-							version = "LuaJIT",
+						format = {
+							enable = true,
+							defaultConfig = {
+								indent_style = "space",
+								indent_size = "2",
+							},
 						},
 					},
 				},
 			}
-
-			vim.lsp.config("pyright", {
-				settings = {
-					python = {
-						analysis = {
-							autoSearchPaths = true,
-							useLibraryCodeForTypes = true,
-							diagnosticMode = "workspace",
-						},
-					},
-				},
-			})
 
 			vim.lsp.config("emmet_ls", {
 				filetypes = {
