@@ -23,8 +23,6 @@ return {
 				"rust_analyzer",
 				"lua_ls",
 				"pyright",
-				"vtsls",
-				"eslint",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -203,27 +201,6 @@ return {
 							autoSearchPaths = true,
 							useLibraryCodeForTypes = true,
 							diagnosticMode = "workspace",
-						},
-					},
-				},
-			})
-
-			vim.lsp.config("vtsls", {
-				single_file_support = false,
-				settings = {
-					vtsls = {
-						enableMoveToFileCodeAction = true,
-						autoUseWorkspaceTsdk = true,
-						experimental = {
-							completion = {
-								enableServerSideFuzzyMatch = true,
-							},
-						},
-					},
-					typescript = {
-						preferences = {
-							includeCompletionsWithSnippetText = true,
-							includeCompletionsForImportStatements = true,
 						},
 					},
 				},
