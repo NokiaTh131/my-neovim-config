@@ -71,8 +71,6 @@ return {
 			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextWarn", { bg = "#2d2a3a", fg = "#f6c177" })
 			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextInfo", { bg = "#2a2d3a", fg = "#9ccfd8" })
 			vim.api.nvim_set_hl(0, "DiagnosticVirtualTextHint", { bg = "#2a2d35", fg = "#c4a7e7" })
-
-			vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#191724" })
 		end,
 	},
 }
