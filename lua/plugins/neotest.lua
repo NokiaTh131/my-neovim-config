@@ -10,7 +10,6 @@ return {
 		"rouge8/neotest-rust",
 		"nvim-neotest/neotest-python",
 		"nvim-neotest/neotest-jest",
-		"marilari88/neotest-vitest",
 		"nvim-neotest/neotest-plenary",
 		"leoluz/nvim-dap-go",
 	},
@@ -35,11 +34,6 @@ return {
 					env = { CI = true },
 					cwd = function()
 						return vim.fn.getcwd()
-					end,
-				}),
-				require("neotest-vitest")({
-					filter_dir = function(name)
-						return name ~= "node_modules"
 					end,
 				}),
 				require("neotest-plenary"),
