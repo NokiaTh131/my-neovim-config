@@ -285,27 +285,6 @@ return {
 
 			-- Navigation & Search
 			{
-				"<leader>fk",
-				function()
-					Snacks.picker.keymaps()
-				end,
-				desc = "Find Keymaps",
-			},
-			{
-				"<leader>fc",
-				function()
-					Snacks.picker.commands()
-				end,
-				desc = "Find Commands",
-			},
-			{
-				"<leader>fo",
-				function()
-					Snacks.picker.oldfiles()
-				end,
-				desc = "Old Files",
-			},
-			{
 				"<leader>fj",
 				function()
 					Snacks.picker.jumps()
@@ -365,14 +344,6 @@ return {
 			},
 			{
 				"<c-/>",
-				function()
-					Snacks.terminal()
-				end,
-				desc = "Toggle Terminal",
-				mode = { "n", "t" },
-			},
-			{
-				"<c-_>",
 				function()
 					Snacks.terminal()
 				end,
