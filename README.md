@@ -1,13 +1,14 @@
-# Modern Neovim Configuration
+# My Neovim Configuration
 
-A minimalist, performance-focused Neovim configuration optimized for development with transparency and modern tooling.
+<img width="1818" height="925" alt="image" src="https://github.com/user-attachments/assets/6491b7ca-a648-4837-b138-20a5b2bcbccd" />
 
 ## Requirements
 
 - **Neovim 0.11.2+**
 - **Git**
 - **ripgrep** (for search functionality)
-- Language servers are auto-installed via Mason
+- **since** i have rust-tools plugin be sure to have rust-analyzer in system
+- Other language servers are auto-installed via Mason
 
 ## Installation
 
