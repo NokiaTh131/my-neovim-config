@@ -343,14 +343,6 @@ return {
 				desc = "Search History",
 			},
 			{
-				"<c-/>",
-				function()
-					Snacks.terminal()
-				end,
-				desc = "Toggle Terminal",
-				mode = { "n", "t" },
-			},
-			{
 				"]]",
 				function()
 					Snacks.words.jump(vim.v.count1)
