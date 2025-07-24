@@ -77,7 +77,19 @@ return {
 			},
 
 			-- Scope
-			scope = {
+			scope = { enabled = true },
+
+			-- Quick file
+			quickfile = { enabled = true },
+
+			-- Status column
+			statuscolumn = { enabled = true },
+
+			-- Words
+			words = { enabled = true },
+
+			-- Picker
+			picker = {
 				enabled = true,
 				win = {
 					input = {
@@ -108,18 +120,6 @@ return {
 					end,
 				},
 			},
-
-			-- Quick file
-			quickfile = { enabled = true },
-
-			-- Status column
-			statuscolumn = { enabled = true },
-
-			-- Words
-			words = { enabled = true },
-
-			-- Picker
-			picker = { enabled = true },
 
 			-- Rename
 			rename = { enabled = true },
