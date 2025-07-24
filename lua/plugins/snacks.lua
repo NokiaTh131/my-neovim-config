@@ -38,6 +38,9 @@ return {
 			-- Terminal
 			terminal = {
 				enabled = true,
+				win = {
+					height = 0.3,
+				},
 			},
 
 			-- Zen mode
@@ -218,6 +221,14 @@ return {
 				desc = "Help Tags",
 			},
 			{
+				"<leader>fk",
+				function()
+					Snacks.picker.keymaps()
+				end,
+				desc = "Keymaps",
+			},
+
+			{
 				"<leader>fr",
 				function()
 					Snacks.picker.recent()
@@ -230,6 +241,13 @@ return {
 					Snacks.picker.grep_word()
 				end,
 				desc = "Grep Word Under Cursor",
+			},
+			{
+				"<leader>ft",
+				function()
+					Snacks.picker.todo_comments()
+				end,
+				desc = "Find Todo Comments",
 			},
 
 			-- LSP & Diagnostics
@@ -357,6 +375,14 @@ return {
 				end,
 				desc = "Prev Reference",
 				mode = { "n", "t" },
+			},
+			{
+				"<c-\\>",
+				function()
+					Snacks.terminal()
+				end,
+				mode = { "n", "t" },
+				desc = "Toggle Terminal",
 			},
 			{
 				"<leader>N",
