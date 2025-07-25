@@ -22,7 +22,7 @@ return {
 				typescript = { "prettierd", "prettier", stop_after_first = true },
 				css = { { "prettierd", "prettier", stop_after_first = true } },
 				scss = { { "prettierd", "prettier", stop_after_first = true } },
-				yaml = { "yamlfix" },
+				yaml = { "prettier" },
 			},
 			format_on_save = {
 				timeout_ms = 500,

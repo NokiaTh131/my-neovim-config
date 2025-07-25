@@ -27,6 +27,7 @@ return {
 				"emmet_ls",
 				"jsonls",
 				"dockerls",
+				"ts_ls",
 			},
 		},
 		dependencies = {
@@ -121,6 +122,10 @@ return {
 						},
 					},
 				},
+			}
+
+			vim.lsp.config["ts_ls"] = {
+				filetypes = { "javascript", "javascriptreact" },
 			}
 
 			vim.lsp.config("emmet_ls", {
