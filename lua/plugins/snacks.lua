@@ -124,9 +124,6 @@ return {
 				},
 			},
 
-			-- Rename
-			rename = { enabled = true },
-
 			-- Styles
 			styles = {
 				notification = {
