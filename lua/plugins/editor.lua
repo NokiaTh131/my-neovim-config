@@ -1,165 +1,162 @@
 return {
-  {
-    "stevearc/oil.nvim",
-    opts = {},
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("oil").setup({
-        default_file_explorer = true,
-        columns = {
-          "icon",
-        },
-        float = {
-          padding = 2,
-          max_width = 0,
-          max_height = 0,
-          border = "rounded",
-          win_options = {
-            winblend = 0,
-          },
-        },
-        buf_options = {
-          buflisted = false,
-          bufhidden = "hide",
-        },
-        win_options = {
-          wrap = false,
-          signcolumn = "no",
-          cursorcolumn = false,
-          foldcolumn = "0",
-          spell = false,
-          list = false,
-          conceallevel = 3,
-          concealcursor = "nvic",
-        },
-        delete_to_trash = true,
-        skip_confirm_for_simple_edits = true,
-        prompt_save_on_select_new_entry = false,
-        cleanup_delay_ms = 2000,
-        lsp_file_methods = {
-          timeout_ms = 1000,
-          autosave_changes = false,
-        },
-        constrain_cursor = "editable",
-        experimental_watch_for_changes = false,
-        keymaps = {
-          ["g?"] = "actions.show_help",
-          ["<CR>"] = "actions.select",
-          ["<C-p>"] = "actions.preview",
-          ["q"] = "actions.close",
-          ["<C-l>"] = "actions.refresh",
-          ["-"] = "actions.parent",
-          ["_"] = "actions.open_cwd",
-          ["`"] = "actions.cd",
-          ["~"] = "actions.tcd",
-          ["gs"] = "actions.change_sort",
-          ["gx"] = "actions.open_external",
-          ["g."] = "actions.toggle_hidden",
-          ["g\\"] = "actions.toggle_trash",
-        },
-        use_default_keymaps = true,
-        view_options = {
-          show_hidden = true,
-          is_always_hidden = function(name, _)
-            return name == ".." or name == ".git"
-          end,
-          sort = {
-            { "type", "asc" },
-            { "name", "asc" },
-          },
-        },
-      })
-      vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
+	{
+		"stevearc/oil.nvim",
+		opts = {},
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("oil").setup({
+				default_file_explorer = true,
+				columns = {
+					"icon",
+				},
+				float = {
+					padding = 2,
+					max_width = 0,
+					max_height = 0,
+					border = "rounded",
+					win_options = {
+						winblend = 0,
+					},
+				},
+				buf_options = {
+					buflisted = false,
+					bufhidden = "hide",
+				},
+				win_options = {
+					wrap = false,
+					signcolumn = "no",
+					cursorcolumn = false,
+					foldcolumn = "0",
+					spell = false,
+					list = false,
+					conceallevel = 3,
+					concealcursor = "nvic",
+				},
+				delete_to_trash = true,
+				skip_confirm_for_simple_edits = true,
+				prompt_save_on_select_new_entry = false,
+				cleanup_delay_ms = 2000,
+				lsp_file_methods = {
+					timeout_ms = 1000,
+					autosave_changes = false,
+				},
+				constrain_cursor = "editable",
+				experimental_watch_for_changes = false,
+				keymaps = {
+					["g?"] = "actions.show_help",
+					["<CR>"] = "actions.select",
+					["<C-p>"] = "actions.preview",
+					["q"] = "actions.close",
+					["<C-l>"] = "actions.refresh",
+					["-"] = "actions.parent",
+					["_"] = "actions.open_cwd",
+					["`"] = "actions.cd",
+					["~"] = "actions.tcd",
+					["gs"] = "actions.change_sort",
+					["gx"] = "actions.open_external",
+					["g."] = "actions.toggle_hidden",
+					["g\\"] = "actions.toggle_trash",
+				},
+				use_default_keymaps = true,
+				view_options = {
+					show_hidden = true,
+					is_always_hidden = function(name, _)
+						return name == ".." or name == ".git"
+					end,
+					sort = {
+						{ "type", "asc" },
+						{ "name", "asc" },
+					},
+				},
+			})
+			vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "Open parent directory" })
 
-      -- Integration with snacks.nvim rename feature
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "OilActionsPost",
-        callback = function(event)
-          if event.data.actions.type == "move" then
-            Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
-          end
-        end,
-      })
-    end,
-  },
-  {
-    "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
-    config = function()
-      require("lualine").setup({
-        options = {
-          theme = "rose-pine",
-        },
-        sections = {
-          lualine_c = {
-            {
-              'filename',
-              cond = function()
-                return vim.bo.filetype ~= 'oil'
-              end
-            },
-            {
-              function()
-                if vim.bo.filetype == 'oil' then
-                  local path = vim.fn.expand "%"
-                  path = path:gsub("oil://", "")
-                  return "" .. vim.fn.fnamemodify(path, ":.")
-                end
-                return ''
-              end,
-              cond = function()
-                return vim.bo.filetype == 'oil'
-              end,
-              icon = ''
-            }
-          }
-        }
-      })
-    end,
-  },
-  {
-    "akinsho/bufferline.nvim",
-    version = "*",
-    dependencies = "nvim-tree/nvim-web-devicons",
-    event = "ColorScheme",
-    config = function()
-      require("bufferline").setup({
-        options = {
-          mode = "buffers",
-          separator_style = "thin",
-          diagnostics = "nvim_lsp",
-          offsets = {
-            {
-              filetype = "oil",
-              text = "File Explorer",
-              highlight = "Directory",
-              separator = true,
-            },
-          },
-        },
-        highlights = require("rose-pine.plugins.bufferline"),
-      })
-      vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
-      vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Switch to previous buffer" })
-    end,
-  },
-  {
-    "lewis6991/gitsigns.nvim",
-    config = function()
-      require("gitsigns").setup()
-    end,
-  },
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    config = function()
-      require("nvim-autopairs").setup({})
-    end,
-  },
-  {
-    "numToStr/Comment.nvim",
-    config = function()
-      require("Comment").setup()
-    end,
-  },
+			-- Integration with snacks.nvim rename feature
+			vim.api.nvim_create_autocmd("User", {
+				pattern = "OilActionsPost",
+				callback = function(event)
+					if event.data.actions.type == "move" then
+						Snacks.rename.on_rename_file(event.data.actions.src_url, event.data.actions.dest_url)
+					end
+				end,
+			})
+		end,
+	},
+	{
+		"nvim-lualine/lualine.nvim",
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+		config = function()
+			require("lualine").setup({
+				sections = {
+					lualine_c = {
+						{
+							"filename",
+							cond = function()
+								return vim.bo.filetype ~= "oil"
+							end,
+						},
+						{
+							function()
+								if vim.bo.filetype == "oil" then
+									local path = vim.fn.expand("%")
+									path = path:gsub("oil://", "")
+									return "" .. vim.fn.fnamemodify(path, ":.")
+								end
+								return ""
+							end,
+							cond = function()
+								return vim.bo.filetype == "oil"
+							end,
+							icon = "",
+						},
+					},
+				},
+			})
+		end,
+	},
+	{
+		"akinsho/bufferline.nvim",
+		version = "*",
+		dependencies = "nvim-tree/nvim-web-devicons",
+		event = "ColorScheme",
+		config = function()
+			require("bufferline").setup({
+				options = {
+					mode = "buffers",
+					separator_style = "thin",
+					diagnostics = "nvim_lsp",
+					offsets = {
+						{
+							filetype = "oil",
+							text = "File Explorer",
+							highlight = "Directory",
+							separator = true,
+						},
+					},
+				},
+				highlights = require("rose-pine.plugins.bufferline"),
+			})
+			vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
+			vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Switch to previous buffer" })
+		end,
+	},
+	{
+		"lewis6991/gitsigns.nvim",
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
+	{
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		config = function()
+			require("nvim-autopairs").setup({})
+		end,
+	},
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
 }

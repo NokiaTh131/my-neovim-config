@@ -200,6 +200,13 @@ return {
 				desc = "Find Files",
 			},
 			{
+				"<leader>fc",
+				function()
+					Snacks.picker.colorschemes()
+				end,
+				desc = "Change Colorscheme",
+			},
+			{
 				"<leader>fg",
 				function()
 					Snacks.picker.grep()
