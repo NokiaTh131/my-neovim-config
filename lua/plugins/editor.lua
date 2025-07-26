@@ -11,9 +11,8 @@ return {
 					height = 0.3,
 				},
 				explorer = {
-					width = 0.2,
-					height = 0.2,
-					kind = "split:leftmost",
+					width = 0.6,
+					height = 0.8,
 				},
 			},
 		},

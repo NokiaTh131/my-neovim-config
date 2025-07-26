@@ -11,12 +11,10 @@ return {
 		"nvim-neotest/neotest-plenary",
 		"leoluz/nvim-dap-go",
 	},
-	-- 🚀 LAZY LOADING: Only load when you actually need testing
 	cmd = {
 		"Neotest",
 	},
 	keys = {
-		-- Test running
 		{
 			"<leader>tn",
 			function()

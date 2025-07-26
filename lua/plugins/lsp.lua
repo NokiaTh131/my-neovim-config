@@ -21,6 +21,7 @@ return {
 			ensure_installed = {
 				"gopls",
 				"lua_ls",
+				"rust_analyzer",
 				"html",
 				"cssls",
 				"tailwindcss",
@@ -28,6 +29,12 @@ return {
 				"jsonls",
 				"dockerls",
 				"ts_ls",
+			},
+			automatic_enable = {
+				exclude = {
+					"rust_analyzer",
+					"ts_ls",
+				},
 			},
 		},
 		dependencies = {
@@ -42,11 +49,11 @@ return {
 			"mason-org/mason.nvim",
 			"mfussenegger/nvim-dap",
 		},
+		ft = { "go", "rust", "javascript", "typescript" },
 		opts = {
 			ensure_installed = {
 				"delve",
 				"codelldb",
-				"debugpy",
 			},
 			automatic_installation = true,
 		},
@@ -57,6 +64,14 @@ return {
 			"williamboman/mason.nvim",
 			"williamboman/mason-lspconfig.nvim",
 			"saghen/blink.cmp",
+		},
+		ft = {
+			"lua",
+			"go",
+			"html",
+			"css",
+			"json",
+			"dockerfile",
 		},
 		config = function()
 			-- Configure diagnostic display
@@ -122,10 +137,6 @@ return {
 						},
 					},
 				},
-			}
-
-			vim.lsp.config["ts_ls"] = {
-				filetypes = { "javascript", "javascriptreact" },
 			}
 
 			vim.lsp.config["jsonls"] = {
