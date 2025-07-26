@@ -23,11 +23,11 @@ nvim
 ### UI & Appearance
 - **Rose Pine** colorscheme with full transparency
 - **Snacks.nvim** - Modern dashboard, notifications, zen mode, and 40+ picker sources
-- **Lualine** statusline with Oil integration
+- **Lualine** statusline
 - **Bufferline** with diagnostics integration
 
 ### File Management
-- **Oil.nvim** - Edit filesystem like a buffer
+- **Fyler.nvim** - Edit filesystem like a buffer
 - **Snacks Picker** - Unified interface for files, grep, buffers, LSP, diagnostics
 - **Harpoon v2** - Quick file navigation
 
@@ -55,7 +55,7 @@ nvim
 | `<leader>ff` | Find files |
 | `<leader>fg` | Live grep |
 | `<leader>fb` | Find buffers |
-| `<leader>e` | File explorer (Oil) |
+| `<leader>e` | File explorer (Fyler) |
 | `<leader>a` | Add to Harpoon |
 | `<C-e>` | Harpoon menu |
 
