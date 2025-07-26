@@ -128,6 +128,15 @@ return {
 				filetypes = { "javascript", "javascriptreact" },
 			}
 
+			vim.lsp.config["jsonls"] = {
+				settings = {
+					json = {
+						schemas = require("schemastore").json.schemas(),
+						validate = { enable = true },
+					},
+				},
+			}
+
 			vim.lsp.config("emmet_ls", {
 				filetypes = {
 					"html",
@@ -136,9 +145,6 @@ return {
 					"css",
 					"sass",
 					"scss",
-					"less",
-					"vue",
-					"svelte",
 				},
 				init_options = {
 					html = {
