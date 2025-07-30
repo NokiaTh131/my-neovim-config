@@ -54,14 +54,6 @@ return {
 				end,
 			},
 
-			-- Terminal
-			terminal = {
-				enabled = true,
-				win = {
-					height = 0.3,
-				},
-			},
-
 			-- Zen mode
 			zen = {
 				enabled = true,
@@ -398,14 +390,6 @@ return {
 				end,
 				desc = "Prev Reference",
 				mode = { "n", "t" },
-			},
-			{
-				"<c-\\>",
-				function()
-					Snacks.terminal()
-				end,
-				mode = { "n", "t" },
-				desc = "Toggle Terminal",
 			},
 			{
 				"<leader>N",
