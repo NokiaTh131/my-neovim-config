@@ -56,3 +56,6 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
+map({ "n", "x" }, "<leader>ca", function()
+	require("tiny-code-action").code_action()
+end, { noremap = true, silent = true })
