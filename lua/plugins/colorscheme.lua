@@ -106,12 +106,4 @@ return {
 			vim.g.gruvbox_material_background = "hard"
 		end,
 	},
-	{
-		"vague2k/vague.nvim",
-		config = function()
-			require("vague").setup({
-				transparent = true,
-			})
-		end,
-	},
 }
