@@ -86,24 +86,23 @@ return {
 		end,
 	},
 	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		priority = 1000,
-		config = function()
-			require("nordic").setup({
-				transparent = {
-					bg = true,
-				},
-			})
-		end,
-	},
-	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
 		priority = 1000,
 		config = function()
 			vim.g.gruvbox_material_transparent_background = true
 			vim.g.gruvbox_material_background = "hard"
+		end,
+	},
+	{ "projekt0n/github-nvim-theme", name = "github-theme" },
+	{
+		"projekt0n/github-nvim-theme",
+		name = "github-theme",
+		lazy = false,
+		config = function()
+			require("github-theme").setup({
+				options = { transparent = true },
+			})
 		end,
 	},
 }
