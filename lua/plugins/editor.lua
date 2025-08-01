@@ -1,24 +1,33 @@
 return {
 	{
-		"A7Lavinraj/fyler.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
-		opts = { -- check the default options in the README.md
-			icon_provider = "nvim-web-devicons",
-			default_explorer = true,
-			views = {
-				confirm = {
-					width = 0.5,
-					height = 0.3,
+		"stevearc/oil.nvim",
+		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+		lazy = false,
+		config = function()
+			function _G.get_oil_winbar()
+				local bufnr = vim.api.nvim_win_get_buf(vim.g.statusline_winid)
+				local dir = require("oil").get_current_dir(bufnr)
+				if dir then
+					return vim.fn.fnamemodify(dir, ":~")
+				else
+					-- If there is no current directory (e.g. over ssh), just show the buffer name
+					return vim.api.nvim_buf_get_name(0)
+				end
+			end
+			require("oil").setup({
+				keymaps = {
+					["<C-h>"] = false,
+					["<C-l>"] = false,
+					["<C-k>"] = false,
+					["<C-j>"] = false,
 				},
-				explorer = {
-					width = 0.6,
-					height = 0.8,
+				win_options = {
+					winbar = "%!v:lua.get_oil_winbar()",
 				},
-			},
-		},
-		keys = {
-			{ "<leader>e", "<cmd>Fyler<cr>", desc = "Fyler" },
-		},
+				view_options = { show_hidden = true },
+				vim.keymap.set("n", "-", "<CMD>Oil<CR>", { desc = "Open parent directory" }),
+			})
+		end,
 	},
 	{
 		"nvim-lualine/lualine.nvim",
