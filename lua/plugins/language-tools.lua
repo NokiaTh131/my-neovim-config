@@ -2,7 +2,14 @@ return {
 	{
 		"pmizio/typescript-tools.nvim",
 		dependencies = { "nvim-lua/plenary.nvim", "neovim/nvim-lspconfig" },
-		opts = {},
+		opts = {
+			settings = {
+				jsx_close_tag = {
+					enable = true,
+					filetypes = { "javascriptreact", "typescriptreact" },
+				},
+			},
+		},
 	},
 	{
 		"mrcjkb/rustaceanvim",
@@ -23,13 +30,13 @@ return {
 			vim.api.nvim_create_autocmd("BufWritePre", {
 				pattern = "*.go",
 				callback = function()
-					require('go.format').goimports()
+					require("go.format").goimports()
 				end,
 				group = format_sync_grp,
 			})
 		end,
-		event = {"CmdlineEnter"},
-		ft = {"go", 'gomod'},
+		event = { "CmdlineEnter" },
+		ft = { "go", "gomod" },
 		build = ':lua require("go.install").update_all_sync()',
 	},
 }
