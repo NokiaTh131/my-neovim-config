@@ -76,16 +76,6 @@ return {
 		},
 	},
 	{
-		"EdenEast/nightfox.nvim",
-		config = function()
-			require("nightfox").setup({
-				options = {
-					transparent = true,
-				},
-			})
-		end,
-	},
-	{
 		"sainnhe/gruvbox-material",
 		lazy = false,
 		priority = 1000,
@@ -94,7 +84,6 @@ return {
 			vim.g.gruvbox_material_background = "hard"
 		end,
 	},
-	{ "projekt0n/github-nvim-theme", name = "github-theme" },
 	{
 		"projekt0n/github-nvim-theme",
 		name = "github-theme",
@@ -103,6 +92,13 @@ return {
 			require("github-theme").setup({
 				options = { transparent = true },
 			})
+		end,
+	},
+	{
+		"sainnhe/everforest",
+		lazy = false,
+		config = function()
+			vim.g.everforest_transparent_background = 1
 		end,
 	},
 }
