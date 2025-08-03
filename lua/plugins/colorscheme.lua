@@ -94,11 +94,4 @@ return {
 			})
 		end,
 	},
-	{
-		"sainnhe/everforest",
-		lazy = false,
-		config = function()
-			vim.g.everforest_transparent_background = 1
-		end,
-	},
 }
