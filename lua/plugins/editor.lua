@@ -1,7 +1,7 @@
 return {
 	{
 		"stevearc/oil.nvim",
-		dependencies = { { "echasnovski/mini.icons", version = false } },
+		dependencies = { { "echasnovski/mini.icons", opts = {} } },
 		lazy = false,
 		config = function()
 			function _G.get_oil_winbar()
