@@ -59,3 +59,9 @@ map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map({ "n", "x" }, "<leader>ca", function()
 	require("tiny-code-action").code_action()
 end, { noremap = true, silent = true })
+
+map("n", "K", function()
+	vim.lsp.buf.hover({
+		border = "rounded",
+	})
+end, { desc = "Hover Documentation" })
