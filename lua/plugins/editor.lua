@@ -1,7 +1,7 @@
 return {
 	{
 		"stevearc/oil.nvim",
-		dependencies = { { "nvim-tree/nvim-web-devicons" } },
+		dependencies = { { "echasnovski/mini.icons", version = false } },
 		lazy = false,
 		config = function()
 			function _G.get_oil_winbar()
@@ -31,7 +31,7 @@ return {
 	},
 	{
 		"nvim-lualine/lualine.nvim",
-		dependencies = { "nvim-tree/nvim-web-devicons" },
+		dependencies = { "echasnovski/mini.icons", version = false },
 		config = function()
 			require("lualine").setup({
 				sections = {
@@ -75,7 +75,7 @@ return {
 	{
 		"akinsho/bufferline.nvim",
 		version = "*",
-		dependencies = "nvim-tree/nvim-web-devicons",
+		dependencies = { "echasnovski/mini.icons", version = false },
 		event = "ColorScheme",
 		config = function()
 			require("bufferline").setup({
