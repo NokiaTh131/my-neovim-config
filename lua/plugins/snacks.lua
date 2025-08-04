@@ -170,7 +170,7 @@ return {
 				desc = "Select Scratch Buffer",
 			},
 			{
-				"<leader>n",
+				"<leader>N",
 				function()
 					Snacks.notifier.show_history()
 				end,
@@ -233,6 +233,14 @@ return {
 				end,
 				desc = "Help Tags",
 			},
+			{
+				"<leader>fu",
+				function()
+					Snacks.picker.undo()
+				end,
+				desc = "Undo history",
+			},
+
 			{
 				"<leader>fk",
 				function()
@@ -299,21 +307,6 @@ return {
 				end,
 				desc = "LSP Workspace Symbols",
 			},
-			{
-				"<leader>xx",
-				function()
-					Snacks.picker.diagnostics()
-				end,
-				desc = "Diagnostics",
-			},
-			{
-				"<leader>xb",
-				function()
-					Snacks.picker.diagnostics_buffer()
-				end,
-				desc = "Buffer Diagnostics",
-			},
-
 			-- Navigation & Search
 			{
 				"<leader>fj",
@@ -388,24 +381,6 @@ return {
 				end,
 				desc = "Prev Reference",
 				mode = { "n", "t" },
-			},
-			{
-				"<leader>N",
-				desc = "Neovim News",
-				function()
-					Snacks.win({
-						file = vim.api.nvim_get_runtime_file("doc/news.txt", false)[1],
-						width = 0.6,
-						height = 0.6,
-						wo = {
-							spell = false,
-							wrap = false,
-							signcolumn = "yes",
-							statuscolumn = " ",
-							conceallevel = 3,
-						},
-					})
-				end,
 			},
 		},
 		init = function()
