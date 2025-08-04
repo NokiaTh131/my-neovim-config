@@ -11,8 +11,6 @@ local function map(mode, lhs, rhs, opts)
 end
 
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
-map("n", "]d", vim.diagnostic.goto_next, { desc = "Next Diagnostic" })
-map("n", "[d", vim.diagnostic.goto_prev, { desc = "Prev Diagnostic" })
 
 map("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
@@ -58,7 +56,7 @@ map("n", "N", "Nzzzv")
 map("n", "<leader>rn", vim.lsp.buf.rename, { desc = "Rename symbol" })
 map({ "n", "x" }, "<leader>ca", function()
 	require("tiny-code-action").code_action()
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = "Code Action" })
 
 map("n", "K", function()
 	vim.lsp.buf.hover({
