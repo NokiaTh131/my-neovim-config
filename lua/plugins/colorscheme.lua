@@ -89,4 +89,16 @@ return {
 			})
 		end,
 	},
+	{
+		"AlexvZyl/nordic.nvim",
+		lazy = false,
+		config = function()
+			require("nordic").setup({
+				transparent = {
+					bg = true,
+					float = false,
+				},
+			})
+		end,
+	},
 }
