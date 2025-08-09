@@ -96,7 +96,7 @@ return {
 			require("nordic").setup({
 				transparent = {
 					bg = true,
-					float = false,
+					float = true,
 				},
 			})
 		end,
