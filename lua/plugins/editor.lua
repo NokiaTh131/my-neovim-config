@@ -63,7 +63,7 @@ return {
 		"akinsho/bufferline.nvim",
 		version = "*",
 		dependencies = { "echasnovski/mini.icons", version = false },
-		event = "ColorScheme",
+		event = "VeryLazy",
 		config = function()
 			require("bufferline").setup({
 				options = {
@@ -79,7 +79,6 @@ return {
 						},
 					},
 				},
-				highlights = require("rose-pine.plugins.bufferline"),
 			})
 			vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
 			vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Switch to previous buffer" })
