@@ -1,4 +1,3 @@
--- Function to load saved colorscheme
 local function load_colorscheme()
 	local data_path = vim.fn.stdpath("data")
 	local colorscheme_file = data_path .. "/colorscheme.txt"
@@ -11,11 +10,9 @@ local function load_colorscheme()
 		end
 	end
 
-	-- Default colorscheme if none saved
 	vim.cmd("colorscheme rose-pine-main")
 end
 
--- Function to save current colorscheme
 local function save_colorscheme()
 	local data_path = vim.fn.stdpath("data")
 	local colorscheme_file = data_path .. "/colorscheme.txt"
@@ -25,7 +22,6 @@ local function save_colorscheme()
 	end
 end
 
--- Auto-save colorscheme when changed
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = save_colorscheme,
 })
@@ -56,7 +52,6 @@ return {
 				},
 			})
 
-			-- Load saved colorscheme or default
 			load_colorscheme()
 		end,
 	},
@@ -78,16 +73,6 @@ return {
 		opts = {
 			transparent = true,
 		},
-	},
-	{
-		"projekt0n/github-nvim-theme",
-		name = "github-theme",
-		lazy = false,
-		config = function()
-			require("github-theme").setup({
-				options = { transparent = true },
-			})
-		end,
 	},
 	{
 		"vague2k/vague.nvim",
