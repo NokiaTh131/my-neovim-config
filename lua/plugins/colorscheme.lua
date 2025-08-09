@@ -90,14 +90,11 @@ return {
 		end,
 	},
 	{
-		"AlexvZyl/nordic.nvim",
+		"vague2k/vague.nvim",
 		lazy = false,
 		config = function()
-			require("nordic").setup({
-				transparent = {
-					bg = true,
-					float = true,
-				},
+			require("vague").setup({
+				transparent = true,
 			})
 		end,
 	},
