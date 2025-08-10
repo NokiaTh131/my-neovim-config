@@ -5,6 +5,9 @@ return {
 	},
 	{
 		"mason-org/mason.nvim",
+		cmd = "Mason",
+		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
+		build = ":MasonUpdate",
 		opts = {
 			ui = {
 				icons = {
@@ -49,6 +52,7 @@ return {
 			"mason-org/mason.nvim",
 			"mfussenegger/nvim-dap",
 		},
+		cmd = { "DapInstall", "DapUninstall" },
 		ft = { "go", "rust", "javascript", "typescript" },
 		opts = {
 			ensure_installed = {
