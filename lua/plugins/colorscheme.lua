@@ -8,19 +8,8 @@ return {
 			require("rose-pine").setup({
 				variant = "auto", -- auto, main, moon, or dawn
 				dark_variant = "main", -- main, moon, or dawn
-
 				styles = {
 					transparency = true,
-				},
-
-				highlight_groups = {
-					VertSplit = { fg = "muted", bg = "muted" },
-					Visual = { fg = "base", bg = "text", inherit = false },
-					BlinkCmpMenu = { bg = "base", fg = "text" },
-					DiagnosticVirtualTextError = { bg = "overlay", fg = "love" },
-					DiagnosticVirtualTextWarn = { bg = "overlay", fg = "gold" },
-					DiagnosticVirtualTextInfo = { bg = "overlay", fg = "foam" },
-					DiagnosticVirtualTextHint = { bg = "overlay", fg = "iris" },
 				},
 			})
 		end,
