@@ -1,10 +1,20 @@
 return {
 	{
 		"mfussenegger/nvim-dap",
+		lazy = true,
 		dependencies = {
 			"rcarriga/nvim-dap-ui",
 			"nvim-neotest/nvim-nio",
 			"theHamsta/nvim-dap-virtual-text",
+		},
+		keys = {
+			{ "<F1>", function() require("dap").continue() end, desc = "Debug: Start/Continue" },
+			{ "<F2>", function() require("dap").step_into() end, desc = "Debug: Step Into" },
+			{ "<F3>", function() require("dap").step_over() end, desc = "Debug: Step Over" },
+			{ "<F4>", function() require("dap").step_out() end, desc = "Debug: Step Out" },
+			{ "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint" },
+			{ "<leader>B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Debug: Set Breakpoint" },
+			{ "<F7>", function() require("dapui").toggle() end, desc = "Debug: See last session result" },
 		},
 		config = function()
 			local dap = require("dap")
@@ -86,25 +96,17 @@ return {
 				},
 			}
 
-			-- Key mappings
-			vim.keymap.set("n", "<F1>", dap.continue, { desc = "Debug: Start/Continue" })
-			vim.keymap.set("n", "<F2>", dap.step_into, { desc = "Debug: Step Into" })
-			vim.keymap.set("n", "<F3>", dap.step_over, { desc = "Debug: Step Over" })
-			vim.keymap.set("n", "<F4>", dap.step_out, { desc = "Debug: Step Out" })
-			vim.keymap.set("n", "<leader>b", dap.toggle_breakpoint, { desc = "Debug: Toggle Breakpoint" })
-			vim.keymap.set("n", "<leader>B", function()
-				dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
-			end, { desc = "Debug: Set Breakpoint" })
-			vim.keymap.set("n", "<F7>", dapui.toggle, { desc = "Debug: See last session result" })
 		end,
 	},
 	{
 		"rcarriga/nvim-dap-ui",
+		lazy = true,
 		dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" },
 		opts = {},
 	},
 	{
 		"theHamsta/nvim-dap-virtual-text",
+		lazy = true,
 		dependencies = { "mfussenegger/nvim-dap" },
 		opts = {},
 	},
