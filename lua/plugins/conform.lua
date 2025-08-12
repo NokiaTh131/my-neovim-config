@@ -20,8 +20,8 @@ return {
 				go = { "gofumpt" },
 				javascript = { "prettierd", "prettier", stop_after_first = true },
 				typescript = { "prettierd", "prettier", stop_after_first = true },
-				css = { { "prettierd", "prettier", stop_after_first = true } },
-				scss = { { "prettierd", "prettier", stop_after_first = true } },
+				css = { "prettierd", "prettier", stop_after_first = true },
+				scss = { "prettierd", "prettier", stop_after_first = true },
 				yaml = { "prettier" },
 			},
 			format_on_save = {
