@@ -42,3 +42,9 @@ vim.api.nvim_create_autocmd("VimEnter", {
 vim.api.nvim_create_autocmd("ColorScheme", {
 	callback = save_colorscheme,
 })
+
+vim.api.nvim_create_autocmd("TextYankPost", {
+	callback = function()
+		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 30 })
+	end,
+})

@@ -42,4 +42,12 @@ return {
 			})
 		end,
 	},
+	{
+		"bluz71/vim-moonfly-colors",
+		name = "moonfly",
+		lazy = false,
+		config = function()
+			vim.g.moonflyTransparent = true
+		end,
+	},
 }
