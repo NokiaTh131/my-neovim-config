@@ -24,7 +24,7 @@ opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 opt.shiftround = true
 opt.shiftwidth = 2
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
-opt.showmode = false
+opt.showmode = true
 opt.sidescrolloff = 8
 opt.signcolumn = "yes"
 opt.smartcase = true
@@ -43,11 +43,12 @@ opt.winminwidth = 5
 opt.wrap = false
 
 if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
+	opt.smoothscroll = true
 end
 
 vim.filetype.add({
-  extension = {
-    conf = "dosini",
-  },
+	extension = {
+		conf = "dosini",
+	},
 })
+
