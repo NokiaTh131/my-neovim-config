@@ -6,8 +6,8 @@ return {
 		priority = 1000,
 		config = function()
 			require("rose-pine").setup({
-				variant = "auto", -- auto, main, moon, or dawn
-				dark_variant = "main", -- main, moon, or dawn
+				variant = "auto",
+				dark_variant = "main",
 				styles = {
 					transparency = true,
 				},
@@ -43,11 +43,12 @@ return {
 		end,
 	},
 	{
-		"bluz71/vim-moonfly-colors",
-		name = "moonfly",
+		"sainnhe/sonokai",
 		lazy = false,
 		config = function()
-			vim.g.moonflyTransparent = true
+			vim.g.sonokai_transparent_background = 2
+			vim.g.sonokai_float_style = "dim"
+			vim.g.sonokai_diagnostic_virtual_text = "colored"
 		end,
 	},
 }
