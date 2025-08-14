@@ -1,27 +1,26 @@
 return {
-  {
-    'b0o/incline.nvim',
-    config = function()
-      require('incline').setup {
-        window = {
-          padding = 0,
-          margin = { horizontal = 0 },
-        },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ':t')
-          local modified = vim.bo[props.buf].modified
-          return {
-            ' ',
-            filename,
-            modified and { ' *', guifg = '#888888', gui = 'bold' } or '',
-            ' ',
-            guibg = '#524f67',
-            guifg = '#e0def4',
-          }
-        end
-      }
-    end,
-    -- Optional: Lazy load Incline
-    event = 'VeryLazy',
-  },
+	{
+		"b0o/incline.nvim",
+		config = function()
+			require("incline").setup({
+				render = function(props)
+					local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+					local ft_icon, ft_color = require("mini.icons").get("filetype", vim.bo[props.buf].filetype)
+					local modified = vim.bo[props.buf].modified
+
+					return {
+						ft_icon and { " ", ft_icon, " ", guifg = ft_color } or "",
+						" ",
+						{ filename, gui = modified and "bold,italic" or "bold" },
+						modified and { " ●", guifg = "#ffffff" } or "",
+					}
+				end,
+				window = {
+					padding = 1,
+					margin = { horizontal = 1 },
+				},
+			})
+		end,
+		event = "VeryLazy",
+	},
 }
