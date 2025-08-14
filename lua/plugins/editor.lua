@@ -30,61 +30,6 @@ return {
 		end,
 	},
 	{
-		"nvim-lualine/lualine.nvim",
-		dependencies = { "echasnovski/mini.icons", version = false },
-		config = function()
-			require("lualine").setup({
-				sections = {
-					lualine_a = { "mode" },
-					lualine_b = { "branch", "diff", "diagnostics", "filename" },
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = {
-						"filetype",
-						"lsp_status",
-						"progress",
-					},
-					lualine_z = {
-						"location",
-					},
-				},
-				inactive_sections = {
-					lualine_a = { "filename" },
-					lualine_b = {},
-					lualine_c = {},
-					lualine_x = {},
-					lualine_y = {},
-					lualine_z = { "location" },
-				},
-			})
-		end,
-	},
-	{
-		"akinsho/bufferline.nvim",
-		version = "*",
-		dependencies = { "echasnovski/mini.icons", version = false },
-		event = "VeryLazy",
-		config = function()
-			require("bufferline").setup({
-				options = {
-					mode = "buffers",
-					separator_style = "thin",
-					diagnostics = "nvim_lsp",
-					offsets = {
-						{
-							filetype = "oil",
-							text = "File Explorer",
-							highlight = "Directory",
-							separator = true,
-						},
-					},
-				},
-			})
-			vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "Switch to next buffer" })
-			vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "Switch to previous buffer" })
-		end,
-	},
-	{
 		"lewis6991/gitsigns.nvim",
 		config = function()
 			require("gitsigns").setup()
