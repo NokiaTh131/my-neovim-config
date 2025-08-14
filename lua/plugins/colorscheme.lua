@@ -49,6 +49,7 @@ return {
 			vim.g.sonokai_transparent_background = 2
 			vim.g.sonokai_float_style = "dim"
 			vim.g.sonokai_diagnostic_virtual_text = "colored"
+			vim.g.sonokai_current_word = "high contrast background"
 		end,
 	},
 }
