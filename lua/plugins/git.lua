@@ -24,6 +24,8 @@ return {
 			vim.keymap.set("n", "<leader>hr", "<cmd>Gitsigns reset_hunk<CR>", { desc = "Reset hunk" })
 			vim.keymap.set("n", "<leader>hR", "<cmd>Gitsigns reset_buffer<CR>", { desc = "Reset buffer" })
 			vim.keymap.set("n", "<leader>hS", "<cmd>Gitsigns stage_buffer<CR>", { desc = "Stage buffer" })
+			vim.keymap.set("n", "<leader>hn", "<cmd>Gitsigns next_hunk<CR>", { desc = "Next hunk" })
+			vim.keymap.set("n", "<leader>hN", "<cmd>Gitsigns prev_hunk<CR>", { desc = "Prev hunk" })
 		end,
 	},
 }
