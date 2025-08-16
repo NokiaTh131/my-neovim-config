@@ -10,7 +10,6 @@ return {
 						filename = "[No Name]"
 					end
 					local ft_icon, ft_color = mini_icons.get("file", filename)
-					local has_errors = #vim.diagnostic.get(props.buf, { severity = vim.diagnostic.severity.ERROR }) > 0
 					local modified = vim.bo[props.buf].modified
 					local function get_git_diff()
 						local icons = { removed = "", changed = "", added = "" }
@@ -51,7 +50,6 @@ return {
 						ft_icon and { ft_icon, " ", group = ft_color } or "",
 						" ",
 						{ filename, gui = modified and "bold,italic" or "bold" },
-						guifg = has_errors and "#e06c75" or "none",
 					}
 				end,
 			})
