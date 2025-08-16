@@ -213,6 +213,13 @@ return {
 				desc = "Change Colorscheme",
 			},
 			{
+				"<leader>fi",
+				function()
+					Snacks.picker.icons()
+				end,
+				desc = "Find Icons",
+			},
+			{
 				"<leader>fg",
 				function()
 					Snacks.picker.grep()
