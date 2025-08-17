@@ -48,3 +48,10 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.highlight.on_yank({ higroup = "IncSearch", timeout = 30 })
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufWinLeave", {
+	pattern = "copilot-chat",
+	callback = function()
+		pcall(vim.api.nvim_win_close, 0, true)
+	end,
+})
