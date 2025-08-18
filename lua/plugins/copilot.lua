@@ -21,8 +21,7 @@ return {
 			}
 		end,
 		keys = {
-			{ "<c-g>", "<CR>", ft = "copilot-chat", desc = "Submit Prompt", remap = true },
-			{ "<leader>z", "", desc = "Copilot", mode = { "n", "v" } },
+			{ "<leader>z", "", desc = "Copilot Actions Menu", mode = { "n", "v" } },
 			{
 				"<leader>za",
 				function()
