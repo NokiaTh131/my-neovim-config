@@ -23,7 +23,7 @@ local function load_colorscheme()
 		end
 	end
 
-	pcall(vim.cmd("colorscheme rose-pine-main"))
+	pcall(vim.cmd.colorscheme, "rose-pine-main")
 end
 
 local function save_colorscheme()
