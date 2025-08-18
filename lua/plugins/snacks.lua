@@ -201,7 +201,7 @@ return {
 			{
 				"<leader>ff",
 				function()
-					Snacks.picker.files()
+					Snacks.picker.files({ hidden = true })
 				end,
 				desc = "Find Files",
 			},
@@ -328,50 +328,6 @@ return {
 					Snacks.picker.marks()
 				end,
 				desc = "Marks",
-			},
-			{
-				"<leader>fq",
-				function()
-					Snacks.picker.qflist()
-				end,
-				desc = "Quickfix List",
-			},
-			{
-				"<leader>fl",
-				function()
-					Snacks.picker.loclist()
-				end,
-				desc = "Location List",
-			},
-
-			-- Advanced
-			{
-				"<leader>f.",
-				function()
-					Snacks.picker.files({ hidden = true })
-				end,
-				desc = "Find All Files (including hidden)",
-			},
-			{
-				"<leader>f/",
-				function()
-					Snacks.picker.lines()
-				end,
-				desc = "Search Lines in Open Buffers",
-			},
-			{
-				"<leader>f:",
-				function()
-					Snacks.picker.command_history()
-				end,
-				desc = "Command History",
-			},
-			{
-				"<leader>f;",
-				function()
-					Snacks.picker.search_history()
-				end,
-				desc = "Search History",
 			},
 			{
 				"]]",

@@ -8,22 +8,18 @@ return {
 			user = user:sub(1, 1):upper() .. user:sub(2)
 			return {
 				auto_insert_mode = false,
+				model = "gpt-5-mini",
 				question_header = "  " .. user .. " ",
 				answer_header = "  Copilot ",
 				window = {
-					layout = "float",
-					width = 100,
-					height = 35,
-					border = "rounded",
-					title = "   AI Assistant",
-					zindex = 100,
+					width = 0.4,
 				},
 			}
 		end,
 		keys = {
 			{ "<leader>z", "", desc = "Copilot Actions Menu", mode = { "n", "v" } },
 			{
-				"<leader>za",
+				"<c-n>",
 				function()
 					return require("CopilotChat").toggle()
 				end,
@@ -31,11 +27,11 @@ return {
 				mode = { "n", "v" },
 			},
 			{
-				"<c-n>",
+				"<leader>za",
 				function()
-					return require("CopilotChat").toggle()
+					return require("CopilotChat").select_model()
 				end,
-				desc = "Toggle (CopilotChat)",
+				desc = "Model Selection (CopilotChat)",
 				mode = { "n", "v" },
 			},
 			{
