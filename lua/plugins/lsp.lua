@@ -31,7 +31,7 @@ return {
 				"emmet_ls",
 				"jsonls",
 				"dockerls",
-				"ts_ls",
+				"vtsls",
 			},
 		},
 		dependencies = {
