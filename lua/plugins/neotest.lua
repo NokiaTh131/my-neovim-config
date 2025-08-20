@@ -7,9 +7,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		-- Language adapters
 		"fredrikaverpil/neotest-golang",
-		"nvim-neotest/neotest-jest",
-		"nvim-neotest/neotest-plenary",
-		"leoluz/nvim-dap-go",
+		"rouge8/neotest-rust",
 	},
 	cmd = {
 		"Neotest",
@@ -28,13 +26,6 @@ return {
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
 			desc = "Run test file",
-		},
-		{
-			"<leader>td",
-			function()
-				require("neotest").run.run({ strategy = "dap" })
-			end,
-			desc = "Debug test",
 		},
 		{
 			"<leader>ts",
@@ -88,16 +79,9 @@ return {
 				require("neotest-golang")({
 					dap = { justMyCode = false },
 				}),
-				require("rustaceanvim.neotest"),
-				require("neotest-jest")({
-					jestCommand = "npm test --",
-					jestConfigFile = "jest.config.js",
-					env = { CI = true },
-					cwd = function()
-						return vim.fn.getcwd()
-					end,
+				require("neotest-rust")({
+					args = { "--no-capture" },
 				}),
-				require("neotest-plenary"),
 			},
 		})
 	end,
