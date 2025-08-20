@@ -1,9 +1,5 @@
 return {
 	{
-		"b0o/schemastore.nvim",
-		lazy = true,
-	},
-	{
 		"mason-org/mason.nvim",
 		cmd = "Mason",
 		keys = { { "<leader>cm", "<cmd>Mason<cr>", desc = "Mason" } },
@@ -29,7 +25,6 @@ return {
 				"cssls",
 				"tailwindcss",
 				"emmet_ls",
-				"jsonls",
 				"dockerls",
 				"vtsls",
 			},
@@ -131,15 +126,6 @@ return {
 								indent_size = "2",
 							},
 						},
-					},
-				},
-			}
-
-			vim.lsp.config["jsonls"] = {
-				settings = {
-					json = {
-						schemas = require("schemastore").json.schemas(),
-						validate = { enable = true },
 					},
 				},
 			}
