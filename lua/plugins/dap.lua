@@ -8,13 +8,55 @@ return {
 			"theHamsta/nvim-dap-virtual-text",
 		},
 		keys = {
-			{ "<F1>", function() require("dap").continue() end, desc = "Debug: Start/Continue" },
-			{ "<F2>", function() require("dap").step_into() end, desc = "Debug: Step Into" },
-			{ "<F3>", function() require("dap").step_over() end, desc = "Debug: Step Over" },
-			{ "<F4>", function() require("dap").step_out() end, desc = "Debug: Step Out" },
-			{ "<leader>b", function() require("dap").toggle_breakpoint() end, desc = "Debug: Toggle Breakpoint" },
-			{ "<leader>B", function() require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: ")) end, desc = "Debug: Set Breakpoint" },
-			{ "<F7>", function() require("dapui").toggle() end, desc = "Debug: See last session result" },
+			{
+				"<F1>",
+				function()
+					require("dap").continue()
+				end,
+				desc = "Debug: Start/Continue",
+			},
+			{
+				"<F2>",
+				function()
+					require("dap").step_into()
+				end,
+				desc = "Debug: Step Into",
+			},
+			{
+				"<F3>",
+				function()
+					require("dap").step_over()
+				end,
+				desc = "Debug: Step Over",
+			},
+			{
+				"<F4>",
+				function()
+					require("dap").step_out()
+				end,
+				desc = "Debug: Step Out",
+			},
+			{
+				"<leader>b",
+				function()
+					require("dap").toggle_breakpoint()
+				end,
+				desc = "Debug: Toggle Breakpoint",
+			},
+			{
+				"<leader>B",
+				function()
+					require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+				end,
+				desc = "Debug: Set Breakpoint",
+			},
+			{
+				"<F7>",
+				function()
+					require("dapui").toggle()
+				end,
+				desc = "Debug: See last session result",
+			},
 		},
 		config = function()
 			local dap = require("dap")
@@ -72,30 +114,6 @@ return {
 					program = "./${relativeFileDirname}",
 				},
 			}
-
-			-- Rust configuration
-			dap.adapters.codelldb = {
-				type = "server",
-				port = "${port}",
-				executable = {
-					command = "codelldb",
-					args = { "--port", "${port}" },
-				},
-			}
-
-			dap.configurations.rust = {
-				{
-					name = "Launch",
-					type = "codelldb",
-					request = "launch",
-					program = function()
-						return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-					end,
-					cwd = "${workspaceFolder}",
-					stopOnEntry = false,
-				},
-			}
-
 		end,
 	},
 	{

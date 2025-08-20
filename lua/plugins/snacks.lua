@@ -206,6 +206,13 @@ return {
 				desc = "Find Files",
 			},
 			{
+				"<leader>fl",
+				function()
+					Snacks.picker.lsp_config()
+				end,
+				desc = "LSP Config",
+			},
+			{
 				"<leader>fc",
 				function()
 					Snacks.picker.colorschemes()

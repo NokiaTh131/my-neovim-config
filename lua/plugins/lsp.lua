@@ -33,12 +33,6 @@ return {
 				"dockerls",
 				"ts_ls",
 			},
-			automatic_enable = {
-				exclude = {
-					"rust_analyzer",
-					"ts_ls",
-				},
-			},
 		},
 		dependencies = {
 			{ "mason-org/mason.nvim", opts = {} },
@@ -57,7 +51,6 @@ return {
 		opts = {
 			ensure_installed = {
 				"delve",
-				"codelldb",
 			},
 			automatic_installation = true,
 		},
