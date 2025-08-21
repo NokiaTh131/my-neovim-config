@@ -5,9 +5,7 @@ return {
 			-- Key mappings for vim-fugitive
 			vim.keymap.set("n", "<leader>gg", "<cmd>Git<CR>", { desc = "Git status" })
 			vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff" })
-			vim.keymap.set("n", "<leader>gf", "<cmd>Git fetch<CR>", { desc = "Git fetch" })
-			vim.keymap.set("n", "<leader>gr", "<cmd>gread<cr>", { desc = "git checkout current file" })
-			vim.keymap.set("n", "<leader>gC", "<cmd>Git commit<CR>", { desc = "Git commit" })
+			vim.keymap.set("n", "<leader>gr", "<cmd>Gread<cr>", { desc = "git checkout current file" })
 			vim.keymap.set("n", "<leader>gl", "<cmd>Git log --oneline<CR>", { desc = "Git log" })
 		end,
 	},
