@@ -7,6 +7,7 @@ return {
 			vim.keymap.set("n", "<leader>gd", "<cmd>Gvdiffsplit<CR>", { desc = "Git diff" })
 			vim.keymap.set("n", "<leader>gr", "<cmd>Gread<cr>", { desc = "Git checkout current file" })
 			vim.keymap.set("n", "<leader>gl", "<cmd>Git log --oneline<CR>", { desc = "Git log" })
+			vim.keymap.set("n", "<leader>gp", ":Git push -u origin ", { desc = "Git push" })
 			vim.keymap.set("n", "gu", "<cmd>diffget //2<CR>", { desc = "Diff get Local" })
 			vim.keymap.set("n", "gh", "<cmd>diffget //3<CR>", { desc = "Diff get Remote" })
 		end,
