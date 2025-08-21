@@ -67,7 +67,7 @@ return {
 		config = function()
 			-- Configure diagnostic display
 			vim.diagnostic.config({
-				virtual_text = false,
+				virtual_text = true,
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = "󰅚",
@@ -80,13 +80,6 @@ return {
 				update_in_insert = false,
 				severity_sort = true,
 			})
-
-			local virtual_text_config = {
-				spacing = 2,
-				prefix = "●",
-			}
-
-			local group = vim.api.nvim_create_augroup("DiagnosticVirtualText", { clear = true })
 
 			vim.lsp.config["lua_ls"] = {
 				settings = {
