@@ -34,16 +34,10 @@ return {
 		},
 	},
 	{
-		"AlexvZyl/nordic.nvim",
-		lazy = false,
-		config = function()
-			require("nordic").setup({
-				transparent = {
-					bg = true,
-					float = true,
-				},
-			})
-		end,
+		"mcauley-penney/techbase.nvim",
+		opts = {
+			transparent = true,
+		},
 	},
 	{
 		"sainnhe/sonokai",
