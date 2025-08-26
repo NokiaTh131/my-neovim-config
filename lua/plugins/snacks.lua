@@ -234,7 +234,7 @@ return {
 				desc = "Live Grep",
 			},
 			{
-				"<c-e>",
+				"<leader>fb",
 				function()
 					Snacks.picker.buffers()
 				end,
