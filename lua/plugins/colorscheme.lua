@@ -15,19 +15,6 @@ return {
 		end,
 	},
 	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-		config = function()
-			require("catppuccin").setup({
-				transparent_background = true,
-				float = {
-					transparent = true,
-					solid = false,
-				},
-			})
-		end,
-	},
-	{
 		"folke/tokyonight.nvim",
 		opts = {
 			transparent = true,
