@@ -18,14 +18,19 @@ return {
 		"folke/tokyonight.nvim",
 		opts = {
 			transparent = true,
+			styles = {
+				sidebars = "transparent",
+				floats = "transparent",
+			},
 		},
 	},
 	{
-		"mcauley-penney/techbase.nvim",
-		opts = {
-			italic_comments = true,
-			transparent = true,
-		},
+		"sainnhe/gruvbox-material",
+		lazy = false,
+		config = function()
+			vim.g.gruvbox_material_transparent_background = 2
+			vim.g.gruvbox_material_float_style = "none"
+		end,
 	},
 	{
 		"sainnhe/sonokai",
