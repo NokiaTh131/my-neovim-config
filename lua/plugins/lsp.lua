@@ -25,7 +25,6 @@ return {
 				"cssls",
 				"tailwindcss",
 				"emmet_ls",
-				"dockerls",
 				"vtsls",
 			},
 		},
