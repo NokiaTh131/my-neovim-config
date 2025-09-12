@@ -33,13 +33,7 @@ return {
 		end,
 	},
 	{
-		"sainnhe/sonokai",
-		lazy = false,
-		config = function()
-			vim.g.sonokai_transparent_background = 2
-			vim.g.sonokai_float_style = "none"
-			vim.g.sonokai_diagnostic_virtual_text = "colored"
-			vim.g.sonokai_current_word = "high contrast background"
-		end,
+		"catppuccin/nvim",
+		name = "catppuccin",
 	},
 }
