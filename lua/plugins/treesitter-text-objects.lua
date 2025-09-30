@@ -11,8 +11,8 @@ return {
 						["aj"] = { query = "@assignment.lhs", desc = "Select left-hand side of assignment" },
 						["ij"] = { query = "@assignment.rhs", desc = "Select right-hand side of assignment" },
 
-						["aa"] = { query = "@parameter.outer", desc = "Select outer part of parameter" },
-						["ia"] = { query = "@parameter.inner", desc = "Select inner part of parameter" },
+						["ap"] = { query = "@parameter.outer", desc = "Select outer part of parameter" },
+						["ip"] = { query = "@parameter.inner", desc = "Select inner part of parameter" },
 
 						["ai"] = { query = "@conditional.outer", desc = "Select outer part of conditional" },
 						["ii"] = { query = "@conditional.inner", desc = "Select inner part of conditional" },
