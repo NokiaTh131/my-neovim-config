@@ -24,16 +24,4 @@ return {
 			},
 		},
 	},
-	{
-		"sainnhe/gruvbox-material",
-		lazy = false,
-		config = function()
-			vim.g.gruvbox_material_transparent_background = 2
-			vim.g.gruvbox_material_float_style = "none"
-		end,
-	},
-	{
-		"catppuccin/nvim",
-		name = "catppuccin",
-	},
 }
