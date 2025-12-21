@@ -25,9 +25,10 @@ return {
 		},
 	},
 	{
-		"loctvl842/monokai-pro.nvim",
+		"uhs-robert/oasis.nvim",
+		lazy = false,
 		config = function()
-			require("monokai-pro").setup()
+			require("oasis").setup()
 		end,
 	},
 }
