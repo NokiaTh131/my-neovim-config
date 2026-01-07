@@ -94,6 +94,16 @@ return {
 				},
 			}
 
+			vim.lsp.config["basedpyright"] = {
+				settings = {
+					basedpyright = {
+						analysis = {
+							typeCheckingMode = "basic",
+						},
+					},
+				},
+			}
+
 			vim.lsp.config("emmet_ls", {
 				filetypes = {
 					"html",

@@ -28,7 +28,9 @@ return {
 		"uhs-robert/oasis.nvim",
 		lazy = false,
 		config = function()
-			require("oasis").setup()
+			require("oasis").setup({
+				transparent = true,
+			})
 		end,
 	},
 }
