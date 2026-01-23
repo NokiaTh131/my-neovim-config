@@ -20,8 +20,6 @@ return {
 					{ "<leader>c", group = "Code" },
 					{ "<leader>b", group = "Buffer" },
 					{ "<leader>x", group = "Quickfix" },
-					{ "<leader><tab>", group = "Tab" },
-					{ "<leader>h", group = "Harpoon" },
 					{ "<leader>t", group = "Test" },
 					{ "<leader>tn", desc = "Run nearest test" },
 					{ "<leader>tf", desc = "Run file tests" },
@@ -32,7 +30,6 @@ return {
 					{ "<leader>tt", desc = "Toggle test summary" },
 					{ "<leader>tw", desc = "Watch tests" },
 					{ "<leader>tW", desc = "Watch file tests" },
-					{ "<leader>a", desc = "Add to Harpoon" },
 				},
 			})
 		end,

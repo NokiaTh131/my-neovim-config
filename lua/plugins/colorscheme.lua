@@ -3,7 +3,6 @@ return {
 		"rose-pine/neovim",
 		name = "rose-pine",
 		lazy = false,
-		priority = 1000,
 		config = function()
 			require("rose-pine").setup({
 				variant = "auto",
@@ -32,5 +31,12 @@ return {
 				transparent = true,
 			})
 		end,
+	},
+	{
+		"craftzdog/solarized-osaka.nvim",
+		lazy = false,
+		opts = {
+			transparent = false,
+		},
 	},
 }
