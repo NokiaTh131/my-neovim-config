@@ -33,10 +33,8 @@ return {
 		end,
 	},
 	{
-		"craftzdog/solarized-osaka.nvim",
+		"oskarnurm/koda.nvim",
 		lazy = false,
-		opts = {
-			transparent = false,
-		},
+		config = function() end,
 	},
 }

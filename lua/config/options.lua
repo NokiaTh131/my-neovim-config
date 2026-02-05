@@ -41,4 +41,3 @@ opt.updatetime = 200
 opt.wildmode = "longest:full,full"
 opt.winminwidth = 5
 opt.wrap = false
-opt.laststatus = 0
